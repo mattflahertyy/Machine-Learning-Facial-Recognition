@@ -1,7 +1,7 @@
 import os
 import hashlib
 
-
+# this method removes all images with duplicate content. it computes the MD5 hash of each image and removes the most similar
 def remove_duplicates(folder):
     hash_keys = {}
     duplicates = []
@@ -21,5 +21,5 @@ def remove_duplicates(folder):
 
 
 if __name__ == "__main__":
-    folder = "happy"
+    folder = "angry"
     remove_duplicates(folder)
