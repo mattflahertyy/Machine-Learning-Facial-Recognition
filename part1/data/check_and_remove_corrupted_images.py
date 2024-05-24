@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-
+# this method removes all images that cannot be opened (corrupted)
 def check_and_remove_corrupted_images(folder):
     corrupted_files = []
     for filename in os.listdir(folder):
@@ -17,5 +17,5 @@ def check_and_remove_corrupted_images(folder):
 
 
 if __name__ == "__main__":
-    folder = "happy"
+    folder = "angry"
     check_and_remove_corrupted_images(folder)
