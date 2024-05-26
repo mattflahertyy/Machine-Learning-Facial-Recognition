@@ -30,7 +30,6 @@ Data Cleaning:
 - Next, the check_and_remove_corrupted_images.py was used to remove corrupted images.
 - After that we ran the resize_images.py to make all images a 224x224 standard size, and use a Haar cascade classifier to center the images around the first face detected.
 - We then manually removed some images, for example images that contained:
-  - Many people
   - Water marks
   - No face
   - Face covered by an object
