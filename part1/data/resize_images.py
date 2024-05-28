@@ -37,5 +37,5 @@ def resize_and_center_face(folder, target_size=(224, 224)):
 
 
 if __name__ == "__main__":
-    folder = "happy"
+    folder = "us"
     resize_and_center_face(folder)
