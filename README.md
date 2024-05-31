@@ -19,9 +19,9 @@ Part 1:
 - split_data.py: Once we had at least 500 images in each of the 4 class folders, this file split the images into test and train folders (80% for train and 20% for test). Like angry_train, angry_test, happy_train, etc.
 - rename_train_images.py: LABELLING - This file changes the names of all images in the train folders to angry_1.png, angry_2.png, etc.
 
-Part 2:  
+Part 2:  TBD
 
-Part 3:  
+Part 3:  TBD
 
 
 
