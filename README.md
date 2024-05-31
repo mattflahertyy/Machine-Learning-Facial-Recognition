@@ -44,11 +44,11 @@ Data Cleaning:
 
 Data Visualization: 
 
-- Class Distribution: Create a bar graph showing the number of images in each class. This helps in understanding if any class is overrepresented or underrepresented. Ensure that each class is clearly labeled.
+- class_distribution.py: Create a bar graph showing the number of images in each class with each graph labeled correctly.
 
-- Pixel Intensity Distribution: For each of your four classes, plot the aggregated pixel intensity distribution for that class. For color (RGB) images, overlay the intensity distributions of the Red, Green, and Blue channels on a single histogram. Ensure that each class is clearly labeled.
+- pixel_intensity_distribution,py: This file plots the aggregated pixel intensity distribution for that class. Choose the correct class in the code. 
 
-- Sample Images: For each class, present a collection of 15 sample images in a 5 × 3 (rows × columns) grid. Each image should have its pixel intensity histogram next to it. Ensure that the images are randomly chosen from each class upon every code execution and that each class is clearly labeled.
+- sample_images.py: This file plots 15 random samples for each class with the histograms next to the image.
 
 
 
