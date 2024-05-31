@@ -11,28 +11,28 @@ def resize_and_center_face(folder, target_size=(224, 224)):
         img = cv2.imread(filepath)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-        # Detect faces
+        # detect faces
         faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
 
         if len(faces) > 0:
-            # Get the first face (assuming there's only one face per image)
+            # get  first face (assuming there's only one face per image)
             x, y, w, h = faces[0]
 
-            # Calculate center of the face
+            # calculate center of the face
             center_x = x + w // 2
             center_y = y + h // 2
 
-            # Calculate crop boundaries to center the face
+            # calculate crop boundaries to center the face
             crop_x = max(0, center_x - target_size[0] // 2)
             crop_y = max(0, center_y - target_size[1] // 2)
             crop_x_end = min(img.shape[1], crop_x + target_size[0])
             crop_y_end = min(img.shape[0], crop_y + target_size[1])
 
-            # Crop and resize the image
+            # crop and resize the image
             cropped_img = img[crop_y:crop_y_end, crop_x:crop_x_end]
             resized_img = cv2.resize(cropped_img, target_size)
 
-            # Save the processed image
+            # cave the image
             cv2.imwrite(filepath, resized_img)
 
 
