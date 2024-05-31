@@ -41,7 +41,6 @@ Data Cleaning:
 -  Once we had our 4 folders for each class - happy, angry, neutral and focused - we ran the split_data.py to split into 8 new folders (happy_train, happy_test, angry_train, etc).
 -  Then we ran the rename_train_images.py to label all train images to angry_1.png, angry_2.png, etc
 -  Once we were done with this, we create 2 folders called final_train and final_test, and moved each class of images into their respective folders
--  VISUALIZE ------
 
 Data Visualization: 
 
