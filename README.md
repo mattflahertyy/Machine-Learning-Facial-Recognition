@@ -44,11 +44,11 @@ Data Cleaning:
 
 Data Visualization: 
 
-- class_distribution.py: Create a bar graph showing the number of images in each class with each graph labeled correctly.
+- class_distribution.py: Create a bar graph showing the number of images in each class with each graph labeled correctly. It uses the imports os and matplotlib to access the files and then plot them in a bar graph. 
 
-- pixel_intensity_distribution,py: This file plots the aggregated pixel intensity distribution for that class. Choose the correct class in the code. 
+- pixel_intensity_distribution,py: This file plots the aggregated pixel intensity distribution for a specified class. The user may choose the specific class in the code. The function reads the images in the class, aggregates the pixel intensities, and then plots them onto the table using matplotlib.
 
-- sample_images.py: This file plots 15 random samples for each class with the histograms next to the image.
+- sample_images.py: This code loads 15 random images and aggregates the pixel intensity distribution for the selected images. Then it displays the sample images with the pixel intensity graphs next to each other.
 
 
 
