@@ -19,9 +19,9 @@ Part 1:
 - split_data.py: Once we had at least 500 images in each of the 4 class folders, this file split the images into test and train folders (80% for train and 20% for test). Like angry_train, angry_test, happy_train, etc.
 - rename_train_images.py: LABELLING - This file changes the names of all images in the train folders to angry_1.png, angry_2.png, etc.
 
-Part 2:  
+Part 2:  TBD
 
-Part 3:  
+Part 3:  TBD
 
 
 
@@ -41,15 +41,14 @@ Data Cleaning:
 -  Once we had our 4 folders for each class - happy, angry, neutral and focused - we ran the split_data.py to split into 8 new folders (happy_train, happy_test, angry_train, etc).
 -  Then we ran the rename_train_images.py to label all train images to angry_1.png, angry_2.png, etc
 -  Once we were done with this, we create 2 folders called final_train and final_test, and moved each class of images into their respective folders
--  VISUALIZE ------
 
 Data Visualization: 
 
-- Class Distribution: Create a bar graph showing the number of images in each class. This helps in understanding if any class is overrepresented or underrepresented. Ensure that each class is clearly labeled.
+- class_distribution.py: Create a bar graph showing the number of images in each class with each graph labeled correctly. It uses the imports os and matplotlib to access the files and then plot them in a bar graph. 
 
-- Pixel Intensity Distribution: For each of your four classes, plot the aggregated pixel intensity distribution for that class. For color (RGB) images, overlay the intensity distributions of the Red, Green, and Blue channels on a single histogram. Ensure that each class is clearly labeled.
+- pixel_intensity_distribution,py: This file plots the aggregated pixel intensity distribution for a specified class. The user may choose the specific class in the code. The function reads the images in the class, aggregates the pixel intensities, and then plots them onto the table using matplotlib.
 
-- Sample Images: For each class, present a collection of 15 sample images in a 5 × 3 (rows × columns) grid. Each image should have its pixel intensity histogram next to it. Ensure that the images are randomly chosen from each class upon every code execution and that each class is clearly labeled.
+- sample_images.py: This code loads 15 random images and aggregates the pixel intensity distribution for the selected images. Then it displays the sample images with the pixel intensity graphs next to each other.
 
 
 
