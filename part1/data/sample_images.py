@@ -3,10 +3,11 @@ import cv2
 import random
 import matplotlib.pyplot as plt
 
+# Ensure you have the correct path to the files
 data_path = os.path.dirname(os.path.abspath(__file__))
 
-# Load random sample function
-def load_sample_images(data_path, num_samples=5):
+# Sample image loader function
+def load_sample_images(data_path, num_samples=15):
     class_samples = {}
     for class_dir in ['neutral', 'happy', 'focused', 'angry']:
         class_path = os.path.join(data_path, class_dir)
@@ -28,26 +29,28 @@ def load_sample_images(data_path, num_samples=5):
     return class_samples
 
 # Load sample images
-num_samples = 5  # Number of samples to display per class
+num_samples = 15 # 15 samples per class
 class_samples = load_sample_images(data_path, num_samples)
 
-# Display the sample images in a grid
-plt.figure(figsize=(15, 20))
+rows, cols = 5, 6  # 5 rows and 6 columns (the histograms will be next to the sample images)
 
+# Display sample images and the histograms for each class
 for class_idx, (class_label, images) in enumerate(class_samples.items()):
+    plt.figure(figsize=(20, 20))
     for img_idx, img in enumerate(images):
-        # Plot the sample image
-        plt.subplot(len(class_samples) * 2, num_samples, class_idx * num_samples * 2 + img_idx + 1)
+        img_pos = (img_idx // (cols // 2)) * cols + (img_idx % (cols // 2)) * 2 + 1
+        plt.subplot(rows, cols, img_pos)
         plt.imshow(img, cmap='gray')
         plt.title(f"{class_label} {img_idx + 1}")
         plt.axis('off')
         
-        # Plot the histogram of pixel intensities
-        plt.subplot(len(class_samples) * 2, num_samples, class_idx * num_samples * 2 + num_samples + img_idx + 1)
+        hist_pos = img_pos + 1 # Calculate subplot position for histogram
+        plt.subplot(rows, cols, hist_pos)
         plt.hist(img.flatten(), bins=256, range=(0, 256), color='gray', alpha=0.75)
         plt.title(f"Histogram of {class_label} {img_idx + 1}")
         plt.xlabel('Pixel Intensity')
         plt.ylabel('Frequency')
 
-plt.tight_layout()
-plt.show()
+    plt.tight_layout()
+    plt.suptitle(f"Class: {class_label}", fontsize=16)
+    plt.show()

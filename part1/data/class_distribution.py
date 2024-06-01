@@ -1,6 +1,7 @@
 import os
 import matplotlib.pyplot as plt
 
+# Ensure you have the correct path to the files
 data_path = os.path.dirname(os.path.abspath(__file__))
 
 # Data and image count function
