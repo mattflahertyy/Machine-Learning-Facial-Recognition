@@ -18,6 +18,9 @@ Part 1:
 - resize_images.py: This file changes all images to a standard 224x224 images size. The method ensures that the face in each image is centered by detecting faces using a Haar cascade classifier, calculating the center of the detected face, and then cropping and resizing the image around that center point.
 - split_data.py: Once we had at least 500 images in each of the 4 class folders, this file split the images into test and train folders (80% for train and 20% for test). Like angry_train, angry_test, happy_train, etc.
 - rename_train_images.py: LABELLING - This file changes the names of all images in the train folders to angry_1.png, angry_2.png, etc.
+- class_distribution.py: Create a bar graph showing the number of images in each class with each graph labeled correctly. It uses the imports os and matplotlib to access the files and then plot them in a bar graph. 
+- pixel_intensity_distribution.py: This file plots the aggregated pixel intensity distribution for a specified class. The user may choose the specific class in the code. The function reads the images in the class, aggregates the pixel intensities, and then plots them onto the table using matplotlib.
+- sample_images.py: This code loads 15 random images and aggregates the pixel intensity distribution for the selected images. Then it displays the sample images with the pixel intensity graphs next to each other.
 
 Part 2:  TBD
 
@@ -44,12 +47,13 @@ Data Cleaning:
 
 Data Visualization: 
 
-- class_distribution.py: Create a bar graph showing the number of images in each class with each graph labeled correctly. It uses the imports os and matplotlib to access the files and then plot them in a bar graph. 
-
-- pixel_intensity_distribution,py: This file plots the aggregated pixel intensity distribution for a specified class. The user may choose the specific class in the code. The function reads the images in the class, aggregates the pixel intensities, and then plots them onto the table using matplotlib.
-
-- sample_images.py: This code loads 15 random images and aggregates the pixel intensity distribution for the selected images. Then it displays the sample images with the pixel intensity graphs next to each other.
-
+- Created a bar graph showing the number of images in each class with each graph labeled correctly.
+  - Used the imports os and matplotlib to access the files and then plot them in a bar graph. 
+- Plotted the aggregated pixel intensity distribution for a specified class.
+  - Read the images in the class
+  - Aggregated the pixel intensities
+  - Plotted them onto the table using matplotlib
+- Loaded 15 random images and aggregated the pixel intensity distribution for the selected images.
 
 
 
