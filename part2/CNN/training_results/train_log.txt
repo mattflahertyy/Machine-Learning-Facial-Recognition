@@ -1,0 +1,36 @@
+Training log:
+
+The following training models were ran in order
+
+Iteration #1
+Model 1:
+Used learning rate of 0.001, best Val Loss: 1.3440
+Best epoch: 7
+
+Iteration #2
+Model 2:
+Changed learning rate to 0.0001, best Val Loss: 1.1349, results were more accurate
+But for this we didnt do max pool after every layer or input size, will redo it at the end
+Best epoch: 7
+
+Iteration #3
+Model 3:
+Just to test the horizontal flipping and rotation, results were worse
+Used learning rate of 0.0001, horizontal flipping and random rotation best Val Loss: 1.2546
+Best epoch: 3
+
+Iteration #4
+Variant 1:
+Used learning rate of 0.0001, 5 layers kernel 5x5 best Val Loss: 0.9997, best results overall
+Best epoch: 8
+
+Iteration #5
+Variant 2:
+Used learning rate of 0.0001, 3 layers kernel 2x2 best Val Loss: 1.1104, slightly worse results than final regular model
+Best epoch: 4
+
+Iteration #6
+Final model (regular):
+Used learning rate of 0.0001, best Val Loss: 1.0704
+Added the max pooling and input size to be consistent with the variants
+Best epoch: 5 

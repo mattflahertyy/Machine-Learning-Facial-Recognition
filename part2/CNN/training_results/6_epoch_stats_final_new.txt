@@ -1,0 +1,15 @@
+Epochs training stats lr = 0.0001, added pooling after all layers and input size match:
+
+
+Epoch 1/15, Train Loss: 1.3108, Val Loss: 1.2624, Val Acc: 0.4191
+Epoch 2/15, Train Loss: 1.1444, Val Loss: 1.1677, Val Acc: 0.4950
+Epoch 3/15, Train Loss: 1.0163, Val Loss: 1.1317, Val Acc: 0.4917
+Epoch 4/15, Train Loss: 0.9306, Val Loss: 1.0872, Val Acc: 0.4851
+Epoch 5/15, Train Loss: 0.8316, Val Loss: 1.0704, Val Acc: 0.4884
+Epoch 6/15, Train Loss: 0.7405, Val Loss: 1.1465, Val Acc: 0.4851
+Epoch 7/15, Train Loss: 0.6761, Val Loss: 1.0856, Val Acc: 0.5281
+Epoch 8/15, Train Loss: 0.5740, Val Loss: 1.1304, Val Acc: 0.5017
+Early stopping
+
+
+Best epoch: 5
