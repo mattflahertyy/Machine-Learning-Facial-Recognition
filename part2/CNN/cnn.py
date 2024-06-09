@@ -32,7 +32,7 @@ class FacialDataset(Dataset):
 
     # Getting image path and label for the given index
     def __getitem__(self, idx):
-        img_name = self.data.iloc[idx, 1]
+        img_name = os.path.join('../', self.data.iloc[idx, 1]) # going back 1 space
         image = Image.open(img_name)
 
         # Ensures all images are converted to RGB format
@@ -48,15 +48,15 @@ class FacialDataset(Dataset):
 
 transform = transforms.Compose([
     transforms.Resize((224, 224)), #resizing images to the proper size
-   # transforms.RandomHorizontalFlip(), #we can add these if we want to prevent overfititng
-   # transforms.RandomRotation(10),
+    # transforms.RandomHorizontalFlip(), #we can add these if we want to prevent overfititng
+    # transforms.RandomRotation(10),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
-train_dataset = FacialDataset(csv_file='./train_data.csv', transform=transform)
-val_dataset = FacialDataset(csv_file='./validation_data.csv', transform=transform)
-test_dataset = FacialDataset(csv_file='./test_data.csv', transform=transform)
+train_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/train_data.csv', transform=transform)
+val_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/validation_data.csv', transform=transform)
+test_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/test_data.csv', transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
@@ -69,55 +69,66 @@ class FacialExpressionCNN(nn.Module):
         super(FacialExpressionCNN, self).__init__()
 
         #create sequentially ordered layers in the network for more modularity
-        # CNN with 4 concovlutional layers, grouped into 2 sets with batch normalization and leakyReLU activation
-        # max pooling is applies after each 2 convolutional layers
+        # CNN with 4 convolutional layers, grouped into 2 sets with batch normalization and leakyReLU activation
+        # max pooling is applied after all convolutional layers
         # three fully connected layers and a dropout layer to prevent overfitting
         #outputs 4 classes
 
         self.conv_layer = nn.Sequential(
-        nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, padding=1),
-        nn.BatchNorm2d(32), #helps accelerate training
-        nn.LeakyReLU(inplace=True),
+            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, padding=1),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2),
 
-        nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, padding=1),
-        nn.BatchNorm2d(32),
-        nn.LeakyReLU(inplace=True),
-        nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, padding=1),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2),
 
-        nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1),
-        nn.BatchNorm2d(64),
-        nn.LeakyReLU(inplace=True),
+            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1),
+            nn.BatchNorm2d(64),
+            nn.LeakyReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2),
 
-        nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, padding=1),
-        nn.BatchNorm2d(64),
-        nn.LeakyReLU(inplace=True),
-        nn.MaxPool2d(kernel_size=2, stride=2),
-      )
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, padding=1),
+            nn.BatchNorm2d(64),
+            nn.LeakyReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2),
+        )
+
+        self.fc_input_size = self.calculate_fc_input_size()
 
         self.fc_layer = nn.Sequential(
-          nn.Linear(56 * 56 * 64, 128),
-          nn.ReLU(inplace=True),
-          nn.Dropout(p=0.1),
-          nn.Linear(128, 4) # 4 class emotions
-      )
+            nn.Linear(self.fc_input_size, 128),
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=0.1),
+            nn.Linear(128, 4)  # 4 class emotions
+        )
 
 
     def forward(self, x):
         #convolutional layers
         x = self.conv_layer(x)
-        print(f'After conv_layer: {x.size()}')  # Print the size after convolutional layers
+        # print(f'After conv_layer: {x.size()}')  # Print the size after convolutional layers -----------------------------
 
 
         #flattening
         x = x.view(x.size(0),-1)
-        print(f'After flattening: {x.size()}')  # Print the size after convolutional layers
+        # print(f'After flattening: {x.size()}')  # Print the size after convolutional layers -----------------------------
 
         #fully connected layers
         x = self.fc_layer(x)
-        print(f'After fc_layer: {x.size()}')  # Print the size after convolutional layers
+        # print(f'After fc_layer: {x.size()}')  # Print the size after convolutional layers -----------------------------
         return x
 
-def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=10, patience=3):
+    def calculate_fc_input_size(self):
+        #function to calculate the input size to the fully connected layers
+        dummy_input = torch.randn(1, 3, 224, 224)  # Assuming input image size is 224x224
+        x = self.conv_layer(dummy_input)
+        fc_input_size = x.size(1) * x.size(2) * x.size(3)
+        return fc_input_size
+
+def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=15, patience=3):
     best_model_wts = model.state_dict()
     best_loss = float('inf')
     patience_counter = 0
@@ -129,9 +140,9 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
      #train loop over the training dataset
         for inputs, labels in train_loader:
             optimizer.zero_grad()
-            print(f'Input size: {inputs.size()}')  # Print the input size
+            # print(f'Input size: {inputs.size()}')  # Print the input size  -----------------------------
             outputs = model(inputs) #forward pass
-            print(f'Output size: {outputs.size()}')
+            # print(f'Output size: {outputs.size()}') -----------------------------
             loss = criterion(outputs, labels)
             loss.backward() #backward propagation
             optimizer.step() #perform the optimizer training step
@@ -154,13 +165,14 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
         val_loss = val_loss / len(val_loader.dataset)
         val_acc = val_acc.double() / len(val_loader.dataset)
 
-        print(f'Epoch {epoch}/{num_epochs - 1}, Train Loss: {epoch_loss:.4f}, Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.4f}')
+        print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {epoch_loss:.4f}, Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.4f}')
 
         #implementing early stopping technique based on the results from val loss
         if val_loss < best_loss:
             best_loss = val_loss
             best_model_wts = model.state_dict()
             patience_counter = 0 #resetting when val loss improves
+            torch.save(model.state_dict(), 'best_model.pth')
         else:
             patience_counter += 1 #increasing when val loss doesnt improve
 
@@ -173,10 +185,10 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
 
 model = FacialExpressionCNN()
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 model = train_model(model, train_loader, val_loader, criterion, optimizer)
 
 
 #save the best model
-torch.save(model.state_dict(), 'best_model.pth')
+# torch.save(model.state_dict(), 'best_model.pth')
