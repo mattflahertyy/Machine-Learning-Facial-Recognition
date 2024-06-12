@@ -27,8 +27,8 @@ def json_to_csv(json_file, csv_file):
 
 
 # Directories
-json_dir = 'model_json_files/'
-csv_dir = 'csv_split_data/'
+json_dir = '../model_json_files/'
+csv_dir = '../csv_split_data/'
 
 # Ensure the csv directory exists
 os.makedirs(csv_dir, exist_ok=True)
