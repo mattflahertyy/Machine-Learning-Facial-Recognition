@@ -22,7 +22,14 @@ Part 1:
 - pixel_intensity_distribution.py: This file plots the aggregated pixel intensity distribution for a specified class. The user may choose the specific class in the code. The function reads the images in the class, aggregates the pixel intensities, and then plots them onto the table using matplotlib.
 - sample_images.py: This code loads 15 random images and aggregates the pixel intensity distribution for the selected images. Then it displays the sample images with the pixel intensity graphs next to each other.
 
-Part 2:  TBD
+Part 2:  
+- label_images.py: This file renamed the images based on their classname depending on the directory they are stored in. It doesn't actually do labelling, just renaming.
+- splitting_data.py: This file split the images into a train, validation and test set (70%, 15%, 15%) and store it into separate json files along with their label from 1-4 based on classname.
+- json_to_csv.py: This file converts the json to csv which contains the image name, image path, label name and label number.
+- cnn.py: This file is for our regular model. First we loaded the training and validation sets using DataLoader, then created 4 layers with max pooling after each layer, along with 3x3 kernel sizes. This file trains the model, and for each epoch it calculates the training and validation loss. If the validation loss reaches a peak, the program has a patience of 3 so it will always keep the best scoring model out of max 15 epochs. There is early stoppage, so if the validation loss does best its lowest score after 3 epochs it will stop the program.
+- cnn_variant1.py: This was the same as the regular CNN model, but it is 5 layers with 5x5 kernel.
+- cnn_variant2.py: This was the same as the regular CNN model, but it is 3 layers with 2x2 kernel.
+- cnn_model_evaluation.py: This file loads the 3 models (regular, variant 1 and variant 2), and evaluates them using the test set. It calculates the accuracy, precision, recall, f1 measure and the macro and micro precision. It also plots a confusion matrix for each of the 3 models.
 
 Part 3:  TBD
 
@@ -54,6 +61,9 @@ Data Visualization:
   - Aggregated the pixel intensities
   - Plotted them onto the table using matplotlib
 - Loaded 15 random images and aggregated the pixel intensity distribution for the selected images.
+
+
+Training the model:
 
 
 
