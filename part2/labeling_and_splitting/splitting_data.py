@@ -31,9 +31,9 @@ if __name__ == "__main__":
     print(f"Test set size: {len(test_images)}")
 
     # Specify filenames
-    train_data_file = 'train_data.json'
-    validation_data_file = 'validation_data.json'
-    test_data_file = 'test_data.json'
+    train_data_file = '../model_json_files/train_data.json'
+    validation_data_file = '../model_json_files/validation_data.json'
+    test_data_file = '../model_json_files/test_data.json'
 
     # Save data to JSON files
     save_to_json({'images': train_images, 'labels': train_labels}, train_data_file)

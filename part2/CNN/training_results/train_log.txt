@@ -34,3 +34,25 @@ Final model (regular):
 Used learning rate of 0.0001, best Val Loss: 1.0704
 Added the max pooling and input size to be consistent with the variants
 Best epoch: 5 
+
+
+
+
+Iteration # 7
+final_model
+Added increase in in_channels and batch Norm per layer, added 0.3 dropout
+Val loss: 1.01
+Best epoch: 9
+
+Iteration # 8
+final_variant1
+Added increase in in_channels and batch Norm per layer, added 0.3 dropout
+Val loss: 0.97
+Best epoch: 7
+
+
+Iteration # 9
+final_variant2
+Added increase in in_channels and batch Norm per layer, added 0.3 dropout
+Val loss: 1.16
+Best epoch: 3

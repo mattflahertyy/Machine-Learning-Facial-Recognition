@@ -30,6 +30,7 @@ Part 2:
 - cnn_variant1.py: This was the same as the regular CNN model, but it is 5 layers with 5x5 kernel.
 - cnn_variant2.py: This was the same as the regular CNN model, but it is 3 layers with 2x2 kernel.
 - cnn_model_evaluation.py: This file loads the 3 models (regular, variant 1 and variant 2), and evaluates them using the test set. It calculates the accuracy, precision, recall, f1 measure and the macro and micro precision. It also plots a confusion matrix for each of the 3 models.
+- change_index.py: This changes the index values in each json from from 1-4 based to 0-3 based.
 
 Part 3:  TBD
 
@@ -53,7 +54,6 @@ Data Cleaning:
 -  Once we were done with this, we create 2 folders called final_train and final_test, and moved each class of images into their respective folders
 
 Data Visualization: 
-
 - Created a bar graph showing the number of images in each class with each graph labeled correctly.
   - Used the imports os and matplotlib to access the files and then plot them in a bar graph. 
 - Plotted the aggregated pixel intensity distribution for a specified class.
@@ -63,11 +63,20 @@ Data Visualization:
 - Loaded 15 random images and aggregated the pixel intensity distribution for the selected images.
 
 
-Training the model:
-
+Training the model:  
+- First we renamed all images just for our own personal understanding when dealing with the images.  
+- Then we ran the splitting_data.py file which created a 3 JSON files for train, validation and test and it stored the image names along with their label number from 1-4.  
+- Next we ran json_to_csv.py which converted the 3 json files to csv, and stored the image name, image path, label name and label number.
+- After realizing we should have our 1-4 based indexes 0-3 based, we ran change_index.py.
+- Next it was time to run the cnn.py file, this trained our regular model and stored the best model for the epoch with the lowest validation loss. This regular model was 4 convolutional layers with 3x3 kernel size.
+- After this it was time for variant 1 and 2 (cnn_variant1.py and cnn_variant2.py), both of these were similar to the cnn.py except variant 1 had 5 layers with 5x5 kernel size and variant 2 had 3 layers with 2x2 kernel size.
+- Finally we ran the cnn_model_evaluation.py file which took our best 3 models and used the test set to measure the performance, calculating the accuracy, precision, recall, and f1 measure for both macro and micro.
 
 
 # DATA SOURCES:
-- Natural Human Face Images for Emotion Recognition - https://www.kaggle.com/datasets/sudarshanvaidya/random-images-for-face-emotion-recognition/data?select=happiness
-- 6 Human Emotions for image classification - https://www.kaggle.com/datasets/yousefmohamed20/sentiment-images-classifier
-- Facial Emotion Recognition - https://www.kaggle.com/datasets/chiragsoni/ferdata/data
+- Natural Human Face Images for Emotion Recognition:
+  - https://www.kaggle.com/datasets/sudarshanvaidya/random-images-for-face-emotion-recognition/data?select=happiness
+- 6 Human Emotions for image classification:
+  - https://www.kaggle.com/datasets/yousefmohamed20/sentiment-images-classifier
+- Facial Emotion Recognition:
+  - https://www.kaggle.com/datasets/chiragsoni/ferdata/data

@@ -74,41 +74,91 @@ class FacialExpressionCNN(nn.Module):
         # three fully connected layers and a dropout layer to prevent overfitting
         #outputs 4 classes
 
+      # OLD VARIANT 1 ------------------------------------------------------------------------------------------------------------------------------
+      #   self.conv_layer = nn.Sequential(
+      #       nn.Conv2d(in_channels=3, out_channels=32, kernel_size=5, padding=2),  # 1st conv layer with 5x5 kernel
+      #       nn.BatchNorm2d(32),
+      #       nn.LeakyReLU(inplace=True),
+      #       nn.MaxPool2d(kernel_size=2, stride=2),
+      #
+      #       nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, padding=2),  # 2nd conv layer with 5x5 kernel
+      #       nn.BatchNorm2d(32),
+      #       nn.LeakyReLU(inplace=True),
+      #       nn.MaxPool2d(kernel_size=2, stride=2),
+      #
+      #       nn.Conv2d(in_channels=32, out_channels=64, kernel_size=5, padding=2),  # 3rd conv layer with 5x5 kernel
+      #       nn.BatchNorm2d(64),
+      #       nn.LeakyReLU(inplace=True),
+      #       nn.MaxPool2d(kernel_size=2, stride=2),
+      #
+      #       nn.Conv2d(in_channels=64, out_channels=64, kernel_size=5, padding=2),  # 4th conv layer with 5x5 kernel
+      #       nn.BatchNorm2d(64),
+      #       nn.LeakyReLU(inplace=True),
+      #       nn.MaxPool2d(kernel_size=2, stride=2),
+      #
+      #       nn.Conv2d(in_channels=64, out_channels=64, kernel_size=5, padding=2),  # 5th conv layer with 5x5 kernel
+      #       nn.BatchNorm2d(64),
+      #       nn.LeakyReLU(inplace=True),
+      #       nn.MaxPool2d(kernel_size=2, stride=2),
+      #   )
+      #
+      #   self.fc_input_size = self.calculate_fc_input_size()
+      #
+      #   self.fc_layer = nn.Sequential(
+      #       nn.Linear(self.fc_input_size, 128),
+      #       nn.ReLU(inplace=True),
+      #       nn.Dropout(p=0.1),
+      #       nn.Linear(128, 4)  # 4 class emotions
+      # )
+
+      # ------------------------------------------------------------------------------------------------------------------------------
+
         self.conv_layer = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=5, padding=2),  # 1st conv layer with 5x5 kernel
+            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=5, padding=2),
             nn.BatchNorm2d(32),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
 
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, padding=2),  # 2nd conv layer with 5x5 kernel
-            nn.BatchNorm2d(32),
-            nn.LeakyReLU(inplace=True),
-            nn.MaxPool2d(kernel_size=2, stride=2),
-
-            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=5, padding=2),  # 3rd conv layer with 5x5 kernel
+            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=5, padding=2),
             nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
 
-            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=5, padding=2),  # 4th conv layer with 5x5 kernel
-            nn.BatchNorm2d(64),
+            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=5, padding=2),
+            nn.BatchNorm2d(128),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
 
-            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=5, padding=2),  # 5th conv layer with 5x5 kernel
-            nn.BatchNorm2d(64),
+            nn.Conv2d(in_channels=128, out_channels=256, kernel_size=5, padding=2),
+            nn.BatchNorm2d(256),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
+
+            nn.Conv2d(in_channels=256, out_channels=512, kernel_size=5, padding=2),
+            nn.BatchNorm2d(512),
+            nn.LeakyReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2),
+
+            nn.Dropout(p=0.3)  # Adjusted dropout rate
         )
 
+        # Calculate the input size for the fully connected layer
         self.fc_input_size = self.calculate_fc_input_size()
 
+        # Fully connected layers
         self.fc_layer = nn.Sequential(
-            nn.Linear(self.fc_input_size, 128),
+            nn.Linear(self.fc_input_size, 256),  # Moderate increase in neurons
             nn.ReLU(inplace=True),
-            nn.Dropout(p=0.1),
-            nn.Linear(128, 4)  # 4 class emotions
-      )
+            nn.Dropout(p=0.3),  # Moderate dropout rate
+
+            nn.Linear(256, 128),  # Intermediate fully connected layer
+            nn.ReLU(inplace=True),
+            nn.Dropout(p=0.2),  # Moderate dropout rate
+
+            nn.Linear(128, 4)  # Output layer for 4 class emotions
+        )
+
+
 
 
     def forward(self, x):
