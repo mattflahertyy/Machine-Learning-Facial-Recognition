@@ -43,9 +43,9 @@ test_dataset = CustomDataset(test_data, transform=transform)
 test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
 # Define the model class for best variant
-class BestVariantCNN(nn.Module):
+class MainModelCNN(nn.Module):
     def __init__(self):
-        super(BestVariantCNN, self).__init__()
+        super(MainModelCNN, self).__init__()
         self.conv_layer = nn.Sequential(
             nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
@@ -182,7 +182,7 @@ def load_model(filepath, model_class):
     return model
 
 # Load models
-main_model = load_model('part2/CNN/training_results/6_best_model_final.pth', BestVariantCNN)
+main_model = load_model('part2/CNN/training_results/6_best_model_final.pth', MainModelCNN)
 variant1_model = load_model('part2/CNN/training_results/4_best_model_variant1.pth', Variant1CNN)
 variant2_model = load_model('part2/CNN/training_results/5_best_model_variant2.pth', Variant2CNN)
 
