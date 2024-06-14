@@ -30,7 +30,7 @@ class CustomDataset(Dataset):
         return image, label
 
 # Load test data from CSV
-test_data = pd.read_csv('part2/csv_split_data/csv_fixed_label/test_data.csv')
+test_data = pd.read_csv('..//csv_split_data/csv_fixed_label/test_data2.csv')
 
 # Define transformations
 transform = transforms.Compose([
@@ -51,14 +51,17 @@ class BestVariantCNN(nn.Module):
             nn.BatchNorm2d(32),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
+
             nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
+
             nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
+
             nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
@@ -91,24 +94,28 @@ class Variant1CNN(nn.Module):
     def __init__(self):
         super(Variant1CNN, self).__init__()
         self.conv_layer = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=5, padding=2),
+            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, padding=2),
+
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, padding=1),
             nn.BatchNorm2d(32),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=5, padding=2),
+
+            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=5, padding=2),
+
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=5, padding=2),
-            nn.BatchNorm2d(64),
+
+            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, padding=1),  # New 5th layer
+            nn.BatchNorm2d(128),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
         )
@@ -119,7 +126,7 @@ class Variant1CNN(nn.Module):
             nn.Linear(self.fc_input_size, 128),
             nn.ReLU(inplace=True),
             nn.Dropout(p=0.1),
-            nn.Linear(128, 4)
+            nn.Linear(128, 4)  # 4 class emotions
         )
 
     def forward(self, x):
@@ -139,16 +146,23 @@ class Variant2CNN(nn.Module):
     def __init__(self):
         super(Variant2CNN, self).__init__()
         self.conv_layer = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=2, padding=1),
+            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=5, padding=1),
             nn.BatchNorm2d(32),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=2, padding=1),
+
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, padding=1),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2),
+
+            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=5, padding=1),
             nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=2, padding=1),
-            nn.BatchNorm2d(128),
+
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=5, padding=1),
+            nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
         )
@@ -159,7 +173,7 @@ class Variant2CNN(nn.Module):
             nn.Linear(self.fc_input_size, 128),
             nn.ReLU(inplace=True),
             nn.Dropout(p=0.1),
-            nn.Linear(128, 4)
+            nn.Linear(128, 4)  # 4 class emotions
         )
 
     def forward(self, x):
@@ -182,9 +196,13 @@ def load_model(filepath, model_class):
     return model
 
 # Load models
-main_model = load_model('part2/CNN/training_results/6_best_model_final.pth', BestVariantCNN)
-variant1_model = load_model('part2/CNN/training_results/4_best_model_variant1.pth', Variant1CNN)
-variant2_model = load_model('part2/CNN/training_results/5_best_model_variant2.pth', Variant2CNN)
+# main_model = load_model('part2/CNN/training_results/6_best_model_final.pth', BestVariantCNN)
+# variant1_model = load_model('part2/CNN/training_results/4_best_model_variant1.pth', Variant1CNN)
+# variant2_model = load_model('part2/CNN/training_results/5_best_model_variant2.pth', Variant2CNN)
+
+main_model = load_model('./training_results2/main_model.pth', BestVariantCNN)
+variant1_model = load_model('./training_results2/variant_1.pth', Variant1CNN)
+variant2_model = load_model('./training_results2/variant_2.pth', Variant2CNN)
 
 # Function to evaluate model
 def evaluate_model(model, dataloader):
@@ -243,5 +261,10 @@ metrics_table = pd.DataFrame({
     'Micro Recall': [main_metrics[5], variant1_metrics[5], variant2_metrics[5]],
     'Micro F1': [main_metrics[6], variant2_metrics[6], variant2_metrics[6]],
 })
+
+# Adjust display options
+pd.set_option('display.max_columns', None)  # Show all columns
+pd.set_option('display.expand_frame_repr', False)  # Prevent line-wrapping
+pd.set_option('display.max_colwidth', None)  # Display full column width
 
 print(metrics_table)

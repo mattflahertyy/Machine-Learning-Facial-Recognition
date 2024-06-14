@@ -32,7 +32,7 @@ class FacialDataset(Dataset):
 
     # Getting image path and label for the given index
     def __getitem__(self, idx):
-        img_name = os.path.join('../', self.data.iloc[idx, 1]) # going back 1 space
+        img_name = self.data.iloc[idx, 1]
         image = Image.open(img_name)
 
         # Ensures all images are converted to RGB format
@@ -54,9 +54,9 @@ transform = transforms.Compose([
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
-train_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/train_data.csv', transform=transform)
-val_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/validation_data.csv', transform=transform)
-test_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/test_data.csv', transform=transform)
+train_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/train_data2.csv', transform=transform)
+val_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/validation_data2.csv', transform=transform)
+test_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/test_data2.csv', transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
@@ -69,76 +69,43 @@ class FacialExpressionCNN(nn.Module):
         super(FacialExpressionCNN, self).__init__()
 
         #create sequentially ordered layers in the network for more modularity
-        # CNN with 3 convolutional layers, grouped into 2 sets with batch normalization and leakyReLU activation
+        # CNN with 4 convolutional layers, grouped into 2 sets with batch normalization and leakyReLU activation
         #max pooling is applied after all convolutional layers
-        # three fully connected layers and a dropout layer to prevent overfitting
+        # four fully connected layers and a dropout layer to prevent overfitting
         # outputs 4 classes
+        # kernel size is 5x5
 
-      # OLD VARIANT 1------------------------------------------------------------------------------------------------------------------------------
-
-      #   self.conv_layer = nn.Sequential(
-      #       nn.Conv2d(in_channels=3, out_channels=32, kernel_size=2, padding=1),  # 1st conv layer with 2x2 kernel
-      #       nn.BatchNorm2d(32),
-      #       nn.LeakyReLU(inplace=True),
-      #       nn.MaxPool2d(kernel_size=2, stride=2),
-      #
-      #       nn.Conv2d(in_channels=32, out_channels=64, kernel_size=2, padding=1),  # 2nd conv layer with 2x2 kernel
-      #       nn.BatchNorm2d(64),
-      #       nn.LeakyReLU(inplace=True),
-      #       nn.MaxPool2d(kernel_size=2, stride=2),
-      #
-      #       nn.Conv2d(in_channels=64, out_channels=128, kernel_size=2, padding=1),  # 3rd conv layer with 2x2 kernel
-      #       nn.BatchNorm2d(128),
-      #       nn.LeakyReLU(inplace=True),
-      #       nn.MaxPool2d(kernel_size=2, stride=2),
-      #   )
-      #
-      #   self.fc_input_size = self.calculate_fc_input_size()
-      #
-      #   self.fc_layer = nn.Sequential(
-      #       nn.Linear(self.fc_input_size, 128),
-      #       nn.ReLU(inplace=True),
-      #       nn.Dropout(p=0.1),
-      #       nn.Linear(128, 4)  # 4 class emotions
-      # )
-
-      # ------------------------------------------------------------------------------------------------------------------------------
 
         self.conv_layer = nn.Sequential(
-            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=2, padding=1),
+            nn.Conv2d(in_channels=3, out_channels=32, kernel_size=5, padding=1),
             nn.BatchNorm2d(32),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
 
-            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=2, padding=1),
+            nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, padding=1),
+            nn.BatchNorm2d(32),
+            nn.LeakyReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=2, stride=2),
+
+            nn.Conv2d(in_channels=32, out_channels=64, kernel_size=5, padding=1),
             nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
 
-            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=2, padding=1),
-            nn.BatchNorm2d(128),
+            nn.Conv2d(in_channels=64, out_channels=64, kernel_size=5, padding=1),
+            nn.BatchNorm2d(64),
             nn.LeakyReLU(inplace=True),
             nn.MaxPool2d(kernel_size=2, stride=2),
-
-            nn.Dropout(p=0.3)  # Adjusted dropout rate
         )
 
-        # Calculate the input size for the fully connected layer
         self.fc_input_size = self.calculate_fc_input_size()
 
-        # Fully connected layers
         self.fc_layer = nn.Sequential(
-            nn.Linear(self.fc_input_size, 256),  # Moderate increase in neurons
+            nn.Linear(self.fc_input_size, 128),
             nn.ReLU(inplace=True),
-            nn.Dropout(p=0.3),  # Moderate dropout rate
-
-            nn.Linear(256, 128),  # Intermediate fully connected layer
-            nn.ReLU(inplace=True),
-            nn.Dropout(p=0.2),  # Moderate dropout rate
-
-            nn.Linear(128, 4)  # Output layer for 4 class emotions
+            nn.Dropout(p=0.1),
+            nn.Linear(128, 4)  # 4 class emotions
         )
-
 
     def forward(self, x):
         #convolutional layers
@@ -206,7 +173,7 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
             best_loss = val_loss
             best_model_wts = model.state_dict()
             patience_counter = 0 #resetting when val loss improves
-            torch.save(model.state_dict(), 'best_model.pth')
+            torch.save(model.state_dict(), 'variant_2.pth')
         else:
             patience_counter += 1 #increasing when val loss doesnt improve
 
