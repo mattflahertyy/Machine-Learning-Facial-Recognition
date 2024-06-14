@@ -16,7 +16,7 @@ def save_to_json(data, filename):
 
 if __name__ == "__main__":
     # Load labeling information from JSON file
-    json_file = 'labeling_info.json'
+    json_file = 'labeling_info2.json'
     images, labels = load_labeling_info(json_file)
 
     # Split the dataset into training, validation, and test sets
@@ -31,9 +31,9 @@ if __name__ == "__main__":
     print(f"Test set size: {len(test_images)}")
 
     # Specify filenames
-    train_data_file = '../model_json_files/train_data.json'
-    validation_data_file = '../model_json_files/validation_data.json'
-    test_data_file = '../model_json_files/test_data.json'
+    train_data_file = '../model_json_files/train_data2.json'
+    validation_data_file = '../model_json_files/validation_data2.json'
+    test_data_file = '../model_json_files/test_data2.json'
 
     # Save data to JSON files
     save_to_json({'images': train_images, 'labels': train_labels}, train_data_file)

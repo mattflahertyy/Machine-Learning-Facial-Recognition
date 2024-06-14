@@ -6,13 +6,13 @@ def rename_images_in_folder(folder, class_name):
 
     for idx, img in enumerate(images):  # iterate through images
         extension = os.path.splitext(img)[1]  # get file extension
-        new_name = f"{class_name}_{idx + 1}{extension}"  # generate new name with class name and index
+        new_name = f"{class_name}__{idx + 1}{extension}"  # generate new name with class name and index
         os.rename(os.path.join(folder, img), os.path.join(folder, new_name))  # rename the image
 
     print(f"Renamed {len(images)} images in {folder}")  # print number of images renamed
 
 if __name__ == "__main__":
-    base_folder = os.path.join(os.getcwd(), "data")  # look for "data" folder in the current directory
+    base_folder = os.path.join(os.getcwd(), "../data2")  # look for "data" folder in the current directory
 
     classes = ["neutral"]  # specify the class folder to rename images (e.g., "happy")
 
