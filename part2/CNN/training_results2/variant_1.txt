@@ -1,0 +1,22 @@
+Variant 1 - patience set to 4, 5 layers
+
+
+Epoch 1/15, Train Loss: 1.2960, Val Loss: 1.1989, Val Acc: 0.4735
+Epoch 2/15, Train Loss: 1.0948, Val Loss: 1.0577, Val Acc: 0.5331
+Epoch 3/15, Train Loss: 0.9962, Val Loss: 0.9927, Val Acc: 0.5762
+Epoch 4/15, Train Loss: 0.8924, Val Loss: 1.0056, Val Acc: 0.5728
+Epoch 5/15, Train Loss: 0.8475, Val Loss: 0.9771, Val Acc: 0.5993
+Epoch 6/15, Train Loss: 0.7489, Val Loss: 0.9718, Val Acc: 0.6060
+Epoch 7/15, Train Loss: 0.6729, Val Loss: 0.9748, Val Acc: 0.5762
+Epoch 8/15, Train Loss: 0.6563, Val Loss: 0.9459, Val Acc: 0.6192
+Epoch 9/15, Train Loss: 0.5752, Val Loss: 0.9842, Val Acc: 0.5828
+Epoch 10/15, Train Loss: 0.5194, Val Loss: 0.9319, Val Acc: 0.5894
+Epoch 11/15, Train Loss: 0.4336, Val Loss: 0.9123, Val Acc: 0.5960
+Epoch 12/15, Train Loss: 0.4049, Val Loss: 0.9631, Val Acc: 0.5795
+Epoch 13/15, Train Loss: 0.3595, Val Loss: 1.0513, Val Acc: 0.6093
+Epoch 14/15, Train Loss: 0.3973, Val Loss: 0.9630, Val Acc: 0.5894
+Early stopping
+
+
+
+Best: epoch 11
