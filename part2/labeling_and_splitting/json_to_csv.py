@@ -34,6 +34,6 @@ csv_dir = '../csv_split_data/'
 os.makedirs(csv_dir, exist_ok=True)
 
 # Convert JSON files to CSV files
-json_to_csv(os.path.join(json_dir, 'train_data.json'), os.path.join(csv_dir, 'train_data.csv'))
-json_to_csv(os.path.join(json_dir, 'validation_data.json'), os.path.join(csv_dir, 'validation_data.csv'))
-json_to_csv(os.path.join(json_dir, 'test_data.json'), os.path.join(csv_dir, 'test_data.csv'))
+json_to_csv(os.path.join(json_dir, 'train_data2.json'), os.path.join(csv_dir, 'train_data2.csv'))
+json_to_csv(os.path.join(json_dir, 'validation_data2.json'), os.path.join(csv_dir, 'validation_data2.csv'))
+json_to_csv(os.path.join(json_dir, 'test_data2.json'), os.path.join(csv_dir, 'test_data2.csv'))
