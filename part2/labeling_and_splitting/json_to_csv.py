@@ -2,11 +2,9 @@ import json
 import csv
 import os
 
-# Define label mappings
 label_mappings = {"angry": 1, "focused": 2, "happy": 3, "neutral": 4}
 
-
-# Function to create CSV from JSON
+# function to create csv from json
 def json_to_csv(json_file, csv_file):
     with open(json_file, 'r') as file:
         data = json.load(file)
@@ -26,14 +24,12 @@ def json_to_csv(json_file, csv_file):
                 {'image_name': image_name, 'image_path': img_path, 'label_name': label_name, 'label_num': label_num})
 
 
-# Directories
 json_dir = '../model_json_files/'
 csv_dir = '../csv_split_data/'
 
-# Ensure the csv directory exists
 os.makedirs(csv_dir, exist_ok=True)
 
-# Convert JSON files to CSV files
+# convert json files to csv files
 json_to_csv(os.path.join(json_dir, 'train_data2.json'), os.path.join(csv_dir, 'train_data2.csv'))
 json_to_csv(os.path.join(json_dir, 'validation_data2.json'), os.path.join(csv_dir, 'validation_data2.csv'))
 json_to_csv(os.path.join(json_dir, 'test_data2.json'), os.path.join(csv_dir, 'test_data2.csv'))
