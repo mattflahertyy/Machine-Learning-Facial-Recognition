@@ -31,6 +31,8 @@ Part 2:
 - cnn_variant2.py: This was the same as the regular CNN model, but it is 3 layers with 2x2 kernel.
 - cnn_model_evaluation.py: This file loads the 3 models (regular, variant 1 and variant 2), and evaluates them using the test set. It calculates the accuracy, precision, recall, f1 measure and the macro and micro precision. It also plots a confusion matrix for each of the 3 models.
 - change_index.py: This changes the index values in each json from from 1-4 based to 0-3 based.
+- evaluate_single_image.py: Does the same as above but only evaluates one image.
+- change_brightness.py: Checks if an image isn't brught enough, if so then it enhances the brightness.
 
 Part 3:  TBD
 
@@ -71,6 +73,8 @@ Training the model:
 - Next it was time to run the cnn.py file, this trained our regular model and stored the best model for the epoch with the lowest validation loss. This regular model was 4 convolutional layers with 3x3 kernel size.
 - After this it was time for variant 1 and 2 (cnn_variant1.py and cnn_variant2.py), both of these were similar to the cnn.py except variant 1 had 5 layers with 5x5 kernel size and variant 2 had 3 layers with 2x2 kernel size.
 - Finally we ran the cnn_model_evaluation.py file which took our best 3 models and used the test set to measure the performance, calculating the accuracy, precision, recall, and f1 measure for both macro and micro.
+- After this we ran the evaluate_single_image.py which does the same as above but analyzes only one image.
+- At the end we decided to add the change_brightness.py which modified the brightness of images if they were too low, resulting in about 10% increase in accuracy.
 
 
 # DATA SOURCES:
