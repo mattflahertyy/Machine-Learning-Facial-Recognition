@@ -16,5 +16,5 @@ def check_and_remove_corrupted_images(folder):
     print(f'Removed {len(corrupted_files)} corrupted images.')  # print how many files removed
 
 if __name__ == "__main__":
-    folder = "data_new/happy"  # specify the folder to check
+    folder = "data_new/neutral"  # specify the folder to check
     check_and_remove_corrupted_images(folder)  # call the function on the folder

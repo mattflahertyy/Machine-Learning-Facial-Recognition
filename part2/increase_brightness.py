@@ -46,6 +46,6 @@ class ImageProcessor:
 
 
 if __name__ == "__main__":
-    directory = "data_new/happy"
+    directory = "data_new/neutral"
     processor = ImageProcessor(directory)
     processor.process_images()

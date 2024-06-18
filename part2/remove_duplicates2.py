@@ -21,5 +21,5 @@ def remove_duplicates(folder):
 
 
 if __name__ == "__main__":
-    folder = "data_new/happy"  # specify the folder to check
+    folder = "data_new/neutral"  # specify the folder to check
     remove_duplicates(folder)  # call the function to remove duplicates
