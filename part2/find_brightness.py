@@ -31,5 +31,5 @@ def process_images(directory):
 
 
 if __name__ == "__main__":
-    directory = "data_new/angry"
+    directory = "data_new/happy"
     process_images(directory)
