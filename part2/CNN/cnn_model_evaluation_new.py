@@ -8,6 +8,15 @@ from torchvision import transforms
 from torch.utils.data import DataLoader, Dataset
 from PIL import Image
 
+# ---------------------------ADDING THE SEED ---------------------------
+import numpy as np
+
+seed = 42
+torch.manual_seed(seed)
+np.random.seed(seed)
+
+
+# ----------------------------------------------------------------------
 
 class CustomDataset(Dataset):
     def __init__(self, data, transform=None):
@@ -20,7 +29,7 @@ class CustomDataset(Dataset):
     def __getitem__(self, idx):
         img_path = self.data.iloc[idx]['image_path']
         image = Image.open(img_path).convert("RGB")
-        label = self.data.iloc[idx]['label_num']
+        label = self.data.iloc[idx]['label_num_class']
 
         if self.transform:
             image = self.transform(image)
@@ -28,10 +37,10 @@ class CustomDataset(Dataset):
         return image, label
 
 
-# Load test data
-test_data = pd.read_csv('..//csv_split_data/csv_fixed_label/test_data_final.csv')
+# load test data
+test_data = pd.read_csv('../csv_split_data/csv_fixed_label/test_data_final.csv')
 
-# Transformations
+# transformations
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor()
@@ -42,16 +51,26 @@ test_dataset = CustomDataset(test_data, transform=transform)
 test_loader = DataLoader(test_dataset, batch_size=32, shuffle=False)
 
 
-# Function to load model and evaluate
-def load_and_evaluate_model(model_filepath, test_loader):
-    model = torch.load(model_filepath)  # Load model directly from .pth file
+# Function to load model
+def load_model(filepath):
+    model = torch.load(filepath)
     model.eval()  # Set the model to evaluation mode
+    return model
 
+
+# load models
+main_model = load_model('training_results_final/best_model.pth')
+variant1_model = load_model('training_results_final/variant1_final.pth')
+variant2_model = load_model('training_results_final/variant2_final.pth')
+
+
+# function to evaluate model
+def evaluate_model(model, dataloader):
     all_preds = []
     all_labels = []
 
     with torch.no_grad():
-        for images, labels in test_loader:
+        for images, labels in dataloader:
             outputs = model(images)
             _, preds = torch.max(outputs, 1)
             all_preds.extend(preds.cpu().numpy())
@@ -60,38 +79,28 @@ def load_and_evaluate_model(model_filepath, test_loader):
     return all_labels, all_preds
 
 
-# List of model filepaths
-model_files = {
-    'Main Model': './training_results_final/main_model_final.pth',
-    'Variant 1': './training_results_final/variant_1_final.pth',
-    'Variant 2': './training_results_final/variant_2_final.pth'
-}
+# evaluate all models
+labels, main_preds = evaluate_model(main_model, test_loader)
+_, variant1_preds = evaluate_model(variant1_model, test_loader)
+_, variant2_preds = evaluate_model(variant2_model, test_loader)
 
-# Evaluate all models
-metrics = {}
 
-for model_name, model_filepath in model_files.items():
-    labels, preds = load_and_evaluate_model(model_filepath, test_loader)
+# function to calculate metrics
+def calculate_metrics(labels, preds):
     accuracy = accuracy_score(labels, preds)
     precision, recall, f1, _ = precision_recall_fscore_support(labels, preds, average='macro')
     micro_precision, micro_recall, micro_f1, _ = precision_recall_fscore_support(labels, preds, average='micro')
 
-    metrics[model_name] = {
-        'Accuracy': accuracy,
-        'Macro Precision': precision,
-        'Macro Recall': recall,
-        'Macro F1': f1,
-        'Micro Precision': micro_precision,
-        'Micro Recall': micro_recall,
-        'Micro F1': micro_f1
-    }
-
-# Display metrics
-metrics_table = pd.DataFrame(metrics).transpose()
-print(metrics_table)
+    return accuracy, precision, recall, f1, micro_precision, micro_recall, micro_f1
 
 
-# Function to plot confusion matrix
+# calculate metrics for each model
+main_metrics = calculate_metrics(labels, main_preds)
+variant1_metrics = calculate_metrics(labels, variant1_preds)
+variant2_metrics = calculate_metrics(labels, variant2_preds)
+
+
+# confusion matrix
 def plot_confusion_matrix(labels, preds, title):
     cm = confusion_matrix(labels, preds)
     plt.figure(figsize=(10, 8))
@@ -102,7 +111,24 @@ def plot_confusion_matrix(labels, preds, title):
     plt.show()
 
 
-# Plot confusion matrices
-for model_name, model_filepath in model_files.items():
-    labels, preds = load_and_evaluate_model(model_filepath, test_loader)
-    plot_confusion_matrix(labels, preds, f'{model_name} Confusion Matrix')
+plot_confusion_matrix(labels, main_preds, 'Main Model Confusion Matrix')
+plot_confusion_matrix(labels, variant1_preds, 'Variant 1 Confusion Matrix')
+plot_confusion_matrix(labels, variant2_preds, 'Variant 2 Confusion Matrix')
+
+# making metrics table
+metrics_table = pd.DataFrame({
+    'Model': ['Main Model', 'Variant 1', 'Variant 2'],
+    'Accuracy': [main_metrics[0], variant1_metrics[0], variant2_metrics[0]],
+    'Macro Precision': [main_metrics[1], variant1_metrics[1], variant2_metrics[1]],
+    'Macro Recall': [main_metrics[2], variant1_metrics[2], variant2_metrics[2]],
+    'Macro F1': [main_metrics[3], variant1_metrics[3], variant2_metrics[3]],
+    'Micro Precision': [main_metrics[4], variant1_metrics[4], variant2_metrics[4]],
+    'Micro Recall': [main_metrics[5], variant1_metrics[5], variant2_metrics[5]],
+    'Micro F1': [main_metrics[6], variant2_metrics[6], variant2_metrics[6]],
+})
+
+pd.set_option('display.max_columns', None)  # Show all columns
+pd.set_option('display.expand_frame_repr', False)  # Prevent line-wrapping
+pd.set_option('display.max_colwidth', None)  # Display full column width
+
+print(metrics_table)

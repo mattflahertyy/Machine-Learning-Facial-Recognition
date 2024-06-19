@@ -54,9 +54,11 @@ class FacialDataset(Dataset):
         return image, label
 
 transform = transforms.Compose([
-    transforms.Resize((224, 224)), #resizing images to the proper size
     # transforms.RandomHorizontalFlip(), #we can add these if we want to prevent overfititng
     # transforms.RandomRotation(10),
+
+    transforms.Resize((224, 224)),
+    transforms.ColorJitter(brightness=0.1),
     transforms.ToTensor(),
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])

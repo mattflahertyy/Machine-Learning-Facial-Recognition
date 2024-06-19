@@ -39,8 +39,13 @@ test_data = pd.read_csv('../csv_split_data/csv_fixed_label/test_data_final.csv')
 
 # transformations
 transform = transforms.Compose([
+    # transforms.Resize((224, 224)),
+    # transforms.ToTensor()
+
     transforms.Resize((224, 224)),
-    transforms.ToTensor()
+    transforms.ColorJitter(brightness=0.1),
+    transforms.ToTensor(),
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
 # DataLoader
@@ -201,9 +206,13 @@ def load_model(filepath, model_class):
     return model
 
 # load models
-main_model = load_model('training_results_final/main_model_final.pth', BestVariantCNN)
-variant1_model = load_model('training_results_final/variant1_final.pth', Variant1CNN)
-variant2_model = load_model('training_results_final/variant2_final.pth', Variant2CNN)
+# main_model = load_model('training_results_final/main_model_final.pth', BestVariantCNN)
+main_model = load_model('training_results_final/best_model.pth', BestVariantCNN)
+# variant1_model = load_model('training_results_final/variant1_final.pth', Variant1CNN)
+variant1_model = load_model('training_results_final/variant_1.pth', Variant1CNN)
+# variant2_model = load_model('training_results_final/variant2_final.pth', Variant2CNN)
+variant2_model = load_model('training_results_final/variant_2.pth', Variant2CNN)
+
 
 # function to evaluate model
 def evaluate_model(model, dataloader):
