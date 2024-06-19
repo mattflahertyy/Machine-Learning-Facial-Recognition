@@ -25,7 +25,7 @@ def label_images(data_dir):
 
 
 if __name__ == "__main__":
-    data_dir = "../data2"
+    data_dir = "../data_new"
 
     images, labels, class_labels = label_images(data_dir)
 
@@ -34,5 +34,5 @@ if __name__ == "__main__":
 
     # store labeling information in a json file
     labeling_info = {'images': images, 'labels': labels, 'class_labels': class_labels}
-    with open('labeling_info2.json', 'w') as json_file:
+    with open('labeling_info_final.json', 'w') as json_file:
         json.dump(labeling_info, json_file)

@@ -14,7 +14,7 @@ def modify_csv(filename):
 
 
 # list of csv files to modify
-files_to_modify = ['test_data2.csv', 'train_data2.csv', 'validation_data2.csv']
+files_to_modify = ['test_data_final.csv', 'train_data_final.csv', 'validation_data_final.csv']
 
 # loop through each file and modify
 for file in files_to_modify:

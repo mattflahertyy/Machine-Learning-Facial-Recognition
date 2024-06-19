@@ -20,6 +20,15 @@ from torch.optim import lr_scheduler
 from sklearn.metrics import accuracy_score
 
 
+# ---------------------------ADDING THE SEED ---------------------------
+import numpy as np
+
+seed = 42
+torch.manual_seed(seed)
+np.random.seed(seed)
+# ----------------------------------------------------------------------
+
+
 class FacialDataset(Dataset):
     # Here we are loading out CSV file containing image paths and labels
     def __init__(self, csv_file, transform=None):
@@ -54,9 +63,9 @@ transform = transforms.Compose([
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
-train_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/train_data2.csv', transform=transform)
-val_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/validation_data2.csv', transform=transform)
-test_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/test_data2.csv', transform=transform)
+train_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/train_data_final.csv', transform=transform)
+val_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/validation_data_final.csv', transform=transform)
+test_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/test_data_final.csv', transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
@@ -126,7 +135,7 @@ class FacialExpressionCNN(nn.Module):
         fc_input_size = x.size(1) * x.size(2) * x.size(3)
         return fc_input_size
 
-def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=20, patience=4):
+def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=20, patience=3):
     best_model_wts = model.state_dict()
     best_loss = float('inf')
     patience_counter = 0

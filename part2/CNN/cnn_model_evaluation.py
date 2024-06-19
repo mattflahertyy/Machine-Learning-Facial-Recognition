@@ -8,6 +8,14 @@ from torchvision import transforms
 from torch.utils.data import DataLoader, Dataset
 from PIL import Image
 
+# ---------------------------ADDING THE SEED ---------------------------
+import numpy as np
+
+seed = 42
+torch.manual_seed(seed)
+np.random.seed(seed)
+# ----------------------------------------------------------------------
+
 class CustomDataset(Dataset):
     def __init__(self, data, transform=None):
         self.data = data
@@ -19,7 +27,7 @@ class CustomDataset(Dataset):
     def __getitem__(self, idx):
         img_path = self.data.iloc[idx]['image_path']
         image = Image.open(img_path).convert("RGB")
-        label = self.data.iloc[idx]['label_num']
+        label = self.data.iloc[idx]['label_num_class']
         
         if self.transform:
             image = self.transform(image)
@@ -27,7 +35,7 @@ class CustomDataset(Dataset):
         return image, label
 
 # load test data
-test_data = pd.read_csv('..//csv_split_data/csv_fixed_label/test_data2.csv')
+test_data = pd.read_csv('../csv_split_data/csv_fixed_label/test_data_final.csv')
 
 # transformations
 transform = transforms.Compose([
@@ -193,9 +201,9 @@ def load_model(filepath, model_class):
     return model
 
 # load models
-main_model = load_model('./training_results2/main_model.pth', BestVariantCNN)
-variant1_model = load_model('./training_results2/variant_1.pth', Variant1CNN)
-variant2_model = load_model('./training_results2/variant_2.pth', Variant2CNN)
+main_model = load_model('training_results_final/main_model_final.pth', BestVariantCNN)
+variant1_model = load_model('training_results_final/variant1_final.pth', Variant1CNN)
+variant2_model = load_model('training_results_final/variant2_final.pth', Variant2CNN)
 
 # function to evaluate model
 def evaluate_model(model, dataloader):
