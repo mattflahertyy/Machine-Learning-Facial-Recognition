@@ -6,7 +6,7 @@ import numpy as np
 # the brightness if it is below the threshold
 
 class ImageProcessor:
-    def __init__(self, directory, brightness_threshold=110, brightness_increase_factor=1.2):
+    def __init__(self, directory, brightness_threshold=133, brightness_increase_factor=1.04):
         self.directory = directory
         self.brightness_threshold = brightness_threshold
         self.brightness_increase_factor = brightness_increase_factor
@@ -17,7 +17,7 @@ class ImageProcessor:
         brightness = np.mean(np_image)
         return brightness
 
-    def increase_brightness(self, image, factor=1.2):
+    def increase_brightness(self, image, factor=1.04):
         if image.mode != 'RGB':
             image = image.convert('RGB')
         enhancer = ImageEnhance.Brightness(image)
@@ -46,6 +46,6 @@ class ImageProcessor:
 
 
 if __name__ == "__main__":
-    directory = "data_new/neutral"
+    directory = "data_new/focused"
     processor = ImageProcessor(directory)
     processor.process_images()
