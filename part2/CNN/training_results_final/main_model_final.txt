@@ -1,0 +1,18 @@
+Main model - patience set to 3
+
+
+Epoch 1/20, Train Loss: 1.2704, Val Loss: 1.1615, Val Acc: 0.4842
+Epoch 2/20, Train Loss: 0.9850, Val Loss: 0.9797, Val Acc: 0.5728
+Epoch 3/20, Train Loss: 0.8210, Val Loss: 0.9515, Val Acc: 0.6013
+Epoch 4/20, Train Loss: 0.6935, Val Loss: 0.9488, Val Acc: 0.5949
+Epoch 5/20, Train Loss: 0.6061, Val Loss: 0.9117, Val Acc: 0.6108
+Epoch 6/20, Train Loss: 0.5088, Val Loss: 0.9092, Val Acc: 0.6234
+Epoch 7/20, Train Loss: 0.4439, Val Loss: 0.9071, Val Acc: 0.6203
+Epoch 8/20, Train Loss: 0.3713, Val Loss: 0.9262, Val Acc: 0.6266
+Epoch 9/20, Train Loss: 0.3338, Val Loss: 0.9656, Val Acc: 0.5981
+Epoch 10/20, Train Loss: 0.2602, Val Loss: 0.9262, Val Acc: 0.6203
+Early stopping
+
+
+
+Best: epoch 7
