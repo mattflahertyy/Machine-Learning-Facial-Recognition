@@ -137,7 +137,7 @@ def calculate_metrics(labels, preds):
 
 # calculate metrics for each race category
 def race_metrics(labels, preds):
-    race_dict = {0: 'White', 1: 'Black', 2: 'Asian', 3: 'Hispanic', 4: 'Arab'}
+    race_dict = {0: 'White', 1: 'Black', 2: 'Asian', 3: 'Hispanic'}
     metrics = {}
 
     for race in np.unique(labels):
