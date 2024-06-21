@@ -35,7 +35,7 @@ class CustomDataset(Dataset):
         return image, label
 
 # load test data
-test_data = pd.read_csv('../csv_split_data/csv_fixed_label/test_data_final.csv')
+test_data = pd.read_csv('../csv_split_data/csv_fixed_label/test.csv')
 
 # transformations
 transform = transforms.Compose([
@@ -247,18 +247,20 @@ variant1_metrics = calculate_metrics(labels, variant1_preds)
 variant2_metrics = calculate_metrics(labels, variant2_preds)
 
 # confusion matrix
-def plot_confusion_matrix(labels, preds, title):
+def plot_confusion_matrix(labels, preds, title, class_names):
     cm = confusion_matrix(labels, preds)
     plt.figure(figsize=(10, 8))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=class_names, yticklabels=class_names)
     plt.title(title)
     plt.ylabel('Actual')
     plt.xlabel('Predicted')
     plt.show()
 
-plot_confusion_matrix(labels, main_preds, 'Main Model Confusion Matrix')
-plot_confusion_matrix(labels, variant1_preds, 'Variant 1 Confusion Matrix')
-plot_confusion_matrix(labels, variant2_preds, 'Variant 2 Confusion Matrix')
+class_names = ['angry', 'focused', 'happy', 'neutral']
+
+plot_confusion_matrix(labels, main_preds, 'Main Model Confusion Matrix', class_names)
+plot_confusion_matrix(labels, variant1_preds, 'Variant 1 Confusion Matrix', class_names)
+plot_confusion_matrix(labels, variant2_preds, 'Variant 2 Confusion Matrix', class_names)
 
 # making metrics table
 metrics_table = pd.DataFrame({

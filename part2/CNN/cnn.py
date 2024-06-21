@@ -48,9 +48,9 @@ transform = transforms.Compose([
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
-train_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/train_data_final.csv', transform=transform)
-val_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/validation_data_final.csv', transform=transform)
-test_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/test_data_final.csv', transform=transform)
+train_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/train.csv', transform=transform)
+val_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/validation.csv', transform=transform)
+test_dataset = FacialDataset(csv_file='../csv_split_data/csv_fixed_label/test.csv', transform=transform)
 
 train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 val_loader = DataLoader(val_dataset, batch_size=32, shuffle=False)
