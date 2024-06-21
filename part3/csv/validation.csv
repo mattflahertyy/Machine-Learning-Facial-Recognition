@@ -1,7 +1,6 @@
 image_name,image_path,label_name_class,label_num_class,label_name_gender,label_num_gender,label_name_race,label_num_race
 focused___233.png,../data_new/focused/focused___233.png,focused,1,female,1,white,0
 angry___162.jpg,../data_new/angry/angry___162.jpg,angry,0,male,0,white,0
-neutral___128.png,../data_new/neutral/neutral___128.png,neutral,3,male,0,arab,4
 neutral___250.jpg,../data_new/neutral/neutral___250.jpg,neutral,3,female,1,white,0
 happy___57.jpg,../data_new/happy/happy___57.jpg,happy,2,female,1,asian,2
 focused___95.png,../data_new/focused/focused___95.png,focused,1,female,1,white,0
@@ -73,7 +72,7 @@ focused___259.png,../data_new/focused/focused___259.png,focused,1,male,0,black,1
 focused___357.png,../data_new/focused/focused___357.png,focused,1,female,1,asian,2
 angry___198.jpg,../data_new/angry/angry___198.jpg,angry,0,male,0,white,0
 happy___349.jpg,../data_new/happy/happy___349.jpg,happy,2,male,0,white,0
-neutral___358.jpg,../data_new/neutral/neutral___358.jpg,neutral,3,male,0,arab,4
+neutral___358.jpg,../data_new/neutral/neutral___358.jpg,neutral,3,male,0,hispanic,3
 angry___74.png,../data_new/angry/angry___74.png,angry,0,male,0,white,0
 happy___98.jpg,../data_new/happy/happy___98.jpg,happy,2,male,0,black,1
 angry___478.jpg,../data_new/angry/angry___478.jpg,angry,0,female,1,hispanic,3
@@ -84,12 +83,12 @@ angry___296.png,../data_new/angry/angry___296.png,angry,0,female,1,white,0
 neutral___298.png,../data_new/neutral/neutral___298.png,neutral,3,male,0,white,0
 angry___454.jpg,../data_new/angry/angry___454.jpg,angry,0,female,1,white,0
 happy___263.png,../data_new/happy/happy___263.png,happy,2,female,1,white,0
-focused___496.png,../data_new/focused/focused___496.png,focused,1,male,0,arab,4
+focused___496.png,../data_new/focused/focused___496.png,focused,1,male,0,hispanic,3
 neutral___254.png,../data_new/neutral/neutral___254.png,neutral,3,female,1,white,0
 focused___239.png,../data_new/focused/focused___239.png,focused,1,male,0,asian,2
 angry___30.jpg,../data_new/angry/angry___30.jpg,angry,0,male,0,white,0
 angry___240.png,../data_new/angry/angry___240.png,angry,0,male,0,black,1
-angry___414.jpg,../data_new/angry/angry___414.jpg,angry,0,male,0,arab,4
+angry___414.jpg,../data_new/angry/angry___414.jpg,angry,0,male,0,hispanic,3
 focused___74.png,../data_new/focused/focused___74.png,focused,1,male,0,asian,2
 happy___506.jpg,../data_new/happy/happy___506.jpg,happy,2,male,0,white,0
 angry___186.png,../data_new/angry/angry___186.png,angry,0,female,1,white,0
@@ -134,7 +133,7 @@ angry___71.jpg,../data_new/angry/angry___71.jpg,angry,0,female,1,white,0
 focused___172.png,../data_new/focused/focused___172.png,focused,1,female,1,hispanic,3
 focused___3.png,../data_new/focused/focused___3.png,focused,1,male,0,white,0
 angry___19.jpg,../data_new/angry/angry___19.jpg,angry,0,female,1,white,0
-angry___77.png,../data_new/angry/angry___77.png,angry,0,male,0,arab,4
+angry___77.png,../data_new/angry/angry___77.png,angry,0,male,0,hispanic,3
 neutral___361.png,../data_new/neutral/neutral___361.png,neutral,3,female,1,white,0
 happy___27.jpg,../data_new/happy/happy___27.jpg,happy,2,female,1,white,0
 happy___47.png,../data_new/happy/happy___47.png,happy,2,male,0,white,0
@@ -142,7 +141,7 @@ focused___444.png,../data_new/focused/focused___444.png,focused,1,male,0,white,0
 angry___383.jpg,../data_new/angry/angry___383.jpg,angry,0,male,0,black,1
 focused___229.jpg,../data_new/focused/focused___229.jpg,focused,1,female,1,white,0
 happy___372.jpg,../data_new/happy/happy___372.jpg,happy,2,male,0,asian,2
-happy___239.png,../data_new/happy/happy___239.png,happy,2,male,0,arab,4
+happy___239.png,../data_new/happy/happy___239.png,happy,2,male,0,hispanic,3
 happy___494.png,../data_new/happy/happy___494.png,happy,2,male,0,white,0
 angry___344.jpg,../data_new/angry/angry___344.jpg,angry,0,female,1,white,0
 happy___284.png,../data_new/happy/happy___284.png,happy,2,male,0,black,1
@@ -153,7 +152,7 @@ angry___181.jpg,../data_new/angry/angry___181.jpg,angry,0,male,0,white,0
 angry___130.jpg,../data_new/angry/angry___130.jpg,angry,0,female,1,white,0
 focused___304.png,../data_new/focused/focused___304.png,focused,1,male,0,white,0
 neutral___338.png,../data_new/neutral/neutral___338.png,neutral,3,male,0,hispanic,3
-angry___261.jpg,../data_new/angry/angry___261.jpg,angry,0,male,0,arab,4
+angry___261.jpg,../data_new/angry/angry___261.jpg,angry,0,male,0,hispanic,3
 focused___287.png,../data_new/focused/focused___287.png,focused,1,male,0,white,0
 angry___253.jpg,../data_new/angry/angry___253.jpg,angry,0,male,0,white,0
 neutral___99.png,../data_new/neutral/neutral___99.png,neutral,3,male,0,hispanic,3
@@ -168,7 +167,7 @@ happy___99.png,../data_new/happy/happy___99.png,happy,2,male,0,black,1
 happy___470.jpg,../data_new/happy/happy___470.jpg,happy,2,female,1,hispanic,3
 neutral___363.png,../data_new/neutral/neutral___363.png,neutral,3,male,0,white,0
 neutral___296.png,../data_new/neutral/neutral___296.png,neutral,3,female,1,hispanic,3
-angry___312.png,../data_new/angry/angry___312.png,angry,0,male,0,arab,4
+angry___312.png,../data_new/angry/angry___312.png,angry,0,male,0,hispanic,3
 focused___283.png,../data_new/focused/focused___283.png,focused,1,female,1,white,0
 happy___249.jpg,../data_new/happy/happy___249.jpg,happy,2,female,1,white,0
 angry___309.jpg,../data_new/angry/angry___309.jpg,angry,0,male,0,white,0
@@ -186,7 +185,7 @@ angry___365.png,../data_new/angry/angry___365.png,angry,0,male,0,white,0
 happy___369.png,../data_new/happy/happy___369.png,happy,2,female,1,white,0
 neutral___347.png,../data_new/neutral/neutral___347.png,neutral,3,male,0,white,0
 happy___313.jpg,../data_new/happy/happy___313.jpg,happy,2,female,1,black,1
-focused___113.png,../data_new/focused/focused___113.png,focused,1,male,0,arab,4
+focused___113.png,../data_new/focused/focused___113.png,focused,1,male,0,hispanic,3
 neutral___167.png,../data_new/neutral/neutral___167.png,neutral,3,male,0,white,0
 neutral___122.png,../data_new/neutral/neutral___122.png,neutral,3,female,1,white,0
 angry___336.png,../data_new/angry/angry___336.png,angry,0,male,0,white,0
@@ -198,14 +197,14 @@ focused___318.png,../data_new/focused/focused___318.png,focused,1,male,0,white,0
 focused___221.png,../data_new/focused/focused___221.png,focused,1,female,1,white,0
 neutral___477.png,../data_new/neutral/neutral___477.png,neutral,3,female,1,white,0
 angry___430.jpg,../data_new/angry/angry___430.jpg,angry,0,female,1,white,0
-focused___371.png,../data_new/focused/focused___371.png,focused,1,female,1,arab,4
+focused___371.png,../data_new/focused/focused___371.png,focused,1,female,1,hispanic,3
 angry___126.jpg,../data_new/angry/angry___126.jpg,angry,0,female,1,white,0
 happy___377.png,../data_new/happy/happy___377.png,happy,2,male,0,white,0
 neutral___472.jpg,../data_new/neutral/neutral___472.jpg,neutral,3,female,1,asian,2
 focused___72.png,../data_new/focused/focused___72.png,focused,1,male,0,white,0
 angry___531.jpg,../data_new/angry/angry___531.jpg,angry,0,male,0,white,0
-focused___173.png,../data_new/focused/focused___173.png,focused,1,male,0,arab,4
-angry___488.jpg,../data_new/angry/angry___488.jpg,angry,0,female,1,arab,4
+focused___173.png,../data_new/focused/focused___173.png,focused,1,male,0,hispanic,3
+angry___488.jpg,../data_new/angry/angry___488.jpg,angry,0,female,1,white,0
 angry___125.png,../data_new/angry/angry___125.png,angry,0,female,1,white,0
 angry___116.jpg,../data_new/angry/angry___116.jpg,angry,0,male,0,asian,2
 neutral___327.png,../data_new/neutral/neutral___327.png,neutral,3,male,0,white,0
@@ -223,7 +222,6 @@ happy___486.png,../data_new/happy/happy___486.png,happy,2,male,0,hispanic,3
 happy___516.jpg,../data_new/happy/happy___516.jpg,happy,2,male,0,hispanic,3
 happy___53.png,../data_new/happy/happy___53.png,happy,2,male,0,white,0
 angry___509.jpg,../data_new/angry/angry___509.jpg,angry,0,male,0,white,0
-neutral___13.png,../data_new/neutral/neutral___13.png,neutral,3,male,0,arab,4
 angry___142.jpg,../data_new/angry/angry___142.jpg,angry,0,male,0,white,0
 happy___412.png,../data_new/happy/happy___412.png,happy,2,male,0,white,0
 neutral___64.png,../data_new/neutral/neutral___64.png,neutral,3,male,0,asian,2
@@ -281,7 +279,7 @@ focused___482.png,../data_new/focused/focused___482.png,focused,1,female,1,white
 happy___501.jpg,../data_new/happy/happy___501.jpg,happy,2,female,1,white,0
 happy___438.png,../data_new/happy/happy___438.png,happy,2,female,1,hispanic,3
 happy___308.png,../data_new/happy/happy___308.png,happy,2,female,1,white,0
-focused___338.png,../data_new/focused/focused___338.png,focused,1,male,0,arab,4
+focused___338.png,../data_new/focused/focused___338.png,focused,1,male,0,hispanic,3
 focused___306.jpg,../data_new/focused/focused___306.jpg,focused,1,female,1,asian,2
 focused___468.png,../data_new/focused/focused___468.png,focused,1,male,0,white,0
 focused___466.png,../data_new/focused/focused___466.png,focused,1,male,0,white,0
@@ -290,13 +288,13 @@ happy___414.png,../data_new/happy/happy___414.png,happy,2,male,0,white,0
 neutral___191.jpg,../data_new/neutral/neutral___191.jpg,neutral,3,female,1,white,0
 focused___380.png,../data_new/focused/focused___380.png,focused,1,female,1,black,1
 angry___40.jpg,../data_new/angry/angry___40.jpg,angry,0,female,1,white,0
-neutral___469.png,../data_new/neutral/neutral___469.png,neutral,3,male,0,arab,4
+neutral___469.png,../data_new/neutral/neutral___469.png,neutral,3,male,0,hispanic,3
 neutral___36.png,../data_new/neutral/neutral___36.png,neutral,3,female,1,white,0
 angry___207.jpg,../data_new/angry/angry___207.jpg,angry,0,male,0,white,0
 focused___457.png,../data_new/focused/focused___457.png,focused,1,female,1,white,0
 happy___175.jpg,../data_new/happy/happy___175.jpg,happy,2,male,0,asian,2
 focused___63.png,../data_new/focused/focused___63.png,focused,1,female,1,white,0
-neutral___85.jpg,../data_new/neutral/neutral___85.jpg,neutral,3,male,0,arab,4
+neutral___85.jpg,../data_new/neutral/neutral___85.jpg,neutral,3,male,0,hispanic,3
 focused___180.jpg,../data_new/focused/focused___180.jpg,focused,1,female,1,white,0
 happy___340.jpg,../data_new/happy/happy___340.jpg,happy,2,female,1,white,0
 angry___216.jpg,../data_new/angry/angry___216.jpg,angry,0,female,1,white,0
