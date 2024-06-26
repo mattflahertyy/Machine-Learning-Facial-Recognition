@@ -2097,6 +2097,7 @@ focused___168.png,../data_new/focused/focused___168.png,focused,1,female,1,white
 neutral___145.png,../data_new/neutral/neutral___145.png,neutral,3,male,0,asian,2
 angry___1000.png,../data_augmentation/hispanic/male/angry/angry___1000.png,angry,0,male,0,hispanic,3
 angry___1001.png,../data_augmentation/hispanic/male/angry/angry___1001.png,angry,0,male,0,hispanic,3
+angry___1002.png,../data_augmentation/hispanic/male/angry/angry___1002.png,angry,0,male,0,hispanic,3
 angry___1003.png,../data_augmentation/hispanic/male/angry/angry___1003.png,angry,0,male,0,hispanic,3
 focused___1004.png,../data_augmentation/hispanic/male/focused/focused___1004.png,focused,1,male,0,hispanic,3
 focused___1005.png,../data_augmentation/hispanic/male/focused/focused___1005.png,focused,1,male,0,hispanic,3
@@ -2214,7 +2215,7 @@ angry___1116.png,../data_augmentation/black/female/angry/angry___1116.png,angry,
 angry___1117.png,../data_augmentation/black/female/angry/angry___1117.png,angry,0,female,1,black,1
 angry___1118.png,../data_augmentation/black/female/angry/angry___1118.png,angry,0,female,1,black,1
 angry___1119.png,../data_augmentation/black/female/angry/angry___1119.png,angry,0,female,1,black,1
-angry___1120.png,.../data_augmentation/black/female/angry/angry___1120.png,angry,0,female,1,black,1
+angry___1120.png,../data_augmentation/black/female/angry/angry___1120.png,angry,0,female,1,black,1
 angry___1121.png,../data_augmentation/black/female/angry/angry___1121.png,angry,0,female,1,black,1
 focused___1122.png,../data_augmentation/black/female/focused/focused___1122.png,focused,1,female,1,black,1
 focused___1123.png,../data_augmentation/black/female/focused/focused___1123.png,focused,1,female,1,black,1
