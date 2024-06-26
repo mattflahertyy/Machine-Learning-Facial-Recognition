@@ -33,7 +33,7 @@ class CustomDataset(Dataset):
 
 
 # load test data
-test_data = pd.read_csv('../csv/test.csv')
+test_data = pd.read_csv('../csv/post_bias/test_augmented.csv')
 
 # transformations
 transform = transforms.Compose([
@@ -105,7 +105,7 @@ def load_model(filepath, model_class):
 
 
 # load model
-main_model = load_model('../models_P2/main_model.pth', MainModel)
+main_model = load_model('../models_P3/main_model_augmented.pth', MainModel)
 
 
 # function to evaluate model
