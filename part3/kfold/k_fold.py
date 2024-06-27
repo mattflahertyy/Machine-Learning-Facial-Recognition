@@ -56,7 +56,10 @@ transform = transforms.Compose([
     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
 ])
 
-dataset = FacialDataset(csv_file='../csv/kfold.csv', transform=transform)
+# for p2 model
+# dataset = FacialDataset(csv_file='../csv/kfold.csv', transform=transform)
+# for p2 model
+dataset = FacialDataset(csv_file='../csv/post_bias/all.csv', transform=transform)
 
 class FacialExpressionCNN(nn.Module):
     def __init__(self):
@@ -150,7 +153,10 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, num_epoch
             best_loss = val_loss
             best_model_wts = model.state_dict()
             patience_counter = 0
-            torch.save(model.state_dict(), 'best_model.pth')
+            # for p2 model
+            # torch.save(model.state_dict(), 'best_model.pth')
+            # for p3 model
+            torch.save(model.state_dict(), 'best_model_augmented.pth')
         else:
             patience_counter += 1
 

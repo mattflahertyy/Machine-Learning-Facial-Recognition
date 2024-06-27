@@ -1,0 +1,221 @@
+K fold for model #3:
+
+Initial dataset length: 2235
+Filtered dataset length: 2235
+Fold 1/10
+Epoch 1/15, Train Loss: 1.3209, Val Loss: 1.2123, Val Acc: 0.4768
+Epoch 2/15, Train Loss: 1.0611, Val Loss: 1.0288, Val Acc: 0.5762
+Epoch 3/15, Train Loss: 0.8933, Val Loss: 0.9400, Val Acc: 0.6225
+Epoch 4/15, Train Loss: 0.7736, Val Loss: 0.8799, Val Acc: 0.6026
+Epoch 5/15, Train Loss: 0.6823, Val Loss: 0.8377, Val Acc: 0.6490
+Epoch 6/15, Train Loss: 0.5691, Val Loss: 0.8652, Val Acc: 0.6523
+Epoch 7/15, Train Loss: 0.5066, Val Loss: 0.7827, Val Acc: 0.6821
+Epoch 8/15, Train Loss: 0.4176, Val Loss: 0.7476, Val Acc: 0.7219
+Epoch 9/15, Train Loss: 0.3852, Val Loss: 0.7559, Val Acc: 0.7053
+Epoch 10/15, Train Loss: 0.3163, Val Loss: 0.7166, Val Acc: 0.7185
+Epoch 11/15, Train Loss: 0.2658, Val Loss: 0.7197, Val Acc: 0.7252
+Epoch 12/15, Train Loss: 0.2274, Val Loss: 0.7400, Val Acc: 0.7417
+Epoch 13/15, Train Loss: 0.1901, Val Loss: 0.7442, Val Acc: 0.7185
+Early stopping
+Test Accuracy for fold 1: 0.6786
+Macro Precision for fold 1: 0.6850
+Macro Recall for fold 1: 0.6861
+Macro F1 Score for fold 1: 0.6836
+Micro Precision for fold 1: 0.6786
+Micro Recall for fold 1: 0.6786
+Micro F1 Score for fold 1: 0.6786
+Fold 2/10
+Epoch 1/15, Train Loss: 1.2334, Val Loss: 1.1488, Val Acc: 0.5099
+Epoch 2/15, Train Loss: 0.9459, Val Loss: 1.0530, Val Acc: 0.5530
+Epoch 3/15, Train Loss: 0.7687, Val Loss: 1.0388, Val Acc: 0.5828
+Epoch 4/15, Train Loss: 0.6600, Val Loss: 1.0020, Val Acc: 0.5894
+Epoch 5/15, Train Loss: 0.5624, Val Loss: 0.8878, Val Acc: 0.6358
+Epoch 6/15, Train Loss: 0.4903, Val Loss: 0.9243, Val Acc: 0.6192
+Epoch 7/15, Train Loss: 0.3972, Val Loss: 0.9344, Val Acc: 0.6192
+Epoch 8/15, Train Loss: 0.3391, Val Loss: 0.9219, Val Acc: 0.6258
+Early stopping
+Test Accuracy for fold 2: 0.6741
+Macro Precision for fold 2: 0.6806
+Macro Recall for fold 2: 0.6716
+Macro F1 Score for fold 2: 0.6722
+Micro Precision for fold 2: 0.6741
+Micro Recall for fold 2: 0.6741
+Micro F1 Score for fold 2: 0.6741
+Fold 3/10
+Epoch 1/15, Train Loss: 1.2642, Val Loss: 1.1902, Val Acc: 0.4834
+Epoch 2/15, Train Loss: 0.9380, Val Loss: 1.0000, Val Acc: 0.5861
+Epoch 3/15, Train Loss: 0.7805, Val Loss: 0.9975, Val Acc: 0.6026
+Epoch 4/15, Train Loss: 0.6502, Val Loss: 0.9466, Val Acc: 0.6060
+Epoch 5/15, Train Loss: 0.5388, Val Loss: 0.9535, Val Acc: 0.6060
+Epoch 6/15, Train Loss: 0.4598, Val Loss: 0.9988, Val Acc: 0.6159
+Epoch 7/15, Train Loss: 0.3784, Val Loss: 1.0362, Val Acc: 0.6225
+Early stopping
+Test Accuracy for fold 3: 0.6161
+Macro Precision for fold 3: 0.6094
+Macro Recall for fold 3: 0.6232
+Macro F1 Score for fold 3: 0.5806
+Micro Precision for fold 3: 0.6161
+Micro Recall for fold 3: 0.6161
+Micro F1 Score for fold 3: 0.6161
+Fold 4/10
+Epoch 1/15, Train Loss: 1.2705, Val Loss: 1.2648, Val Acc: 0.4305
+Epoch 2/15, Train Loss: 0.9902, Val Loss: 1.1871, Val Acc: 0.5199
+Epoch 3/15, Train Loss: 0.8611, Val Loss: 1.1211, Val Acc: 0.5397
+Epoch 4/15, Train Loss: 0.7035, Val Loss: 1.0290, Val Acc: 0.5960
+Epoch 5/15, Train Loss: 0.5976, Val Loss: 1.0871, Val Acc: 0.5960
+Epoch 6/15, Train Loss: 0.5150, Val Loss: 1.0888, Val Acc: 0.6026
+Epoch 7/15, Train Loss: 0.4224, Val Loss: 1.0754, Val Acc: 0.6159
+Early stopping
+Test Accuracy for fold 4: 0.6652
+Macro Precision for fold 4: 0.6748
+Macro Recall for fold 4: 0.6621
+Macro F1 Score for fold 4: 0.6604
+Micro Precision for fold 4: 0.6652
+Micro Recall for fold 4: 0.6652
+Micro F1 Score for fold 4: 0.6652
+Fold 5/10
+Epoch 1/15, Train Loss: 1.2691, Val Loss: 1.1781, Val Acc: 0.5166
+Epoch 2/15, Train Loss: 0.9964, Val Loss: 1.0013, Val Acc: 0.5828
+Epoch 3/15, Train Loss: 0.8447, Val Loss: 0.9795, Val Acc: 0.6026
+Epoch 4/15, Train Loss: 0.7160, Val Loss: 0.9424, Val Acc: 0.5894
+Epoch 5/15, Train Loss: 0.6071, Val Loss: 1.0021, Val Acc: 0.5530
+Epoch 6/15, Train Loss: 0.4974, Val Loss: 0.9248, Val Acc: 0.5960
+Epoch 7/15, Train Loss: 0.4359, Val Loss: 0.9253, Val Acc: 0.6159
+Epoch 8/15, Train Loss: 0.3811, Val Loss: 0.8975, Val Acc: 0.6391
+Epoch 9/15, Train Loss: 0.3212, Val Loss: 0.9574, Val Acc: 0.6159
+Epoch 10/15, Train Loss: 0.2642, Val Loss: 0.9502, Val Acc: 0.5894
+Epoch 11/15, Train Loss: 0.2161, Val Loss: 0.9761, Val Acc: 0.6192
+Early stopping
+Test Accuracy for fold 5: 0.6429
+Macro Precision for fold 5: 0.6529
+Macro Recall for fold 5: 0.6429
+Macro F1 Score for fold 5: 0.6400
+Micro Precision for fold 5: 0.6429
+Micro Recall for fold 5: 0.6429
+Micro F1 Score for fold 5: 0.6429
+Fold 6/10
+Epoch 1/15, Train Loss: 1.3269, Val Loss: 1.2698, Val Acc: 0.3974
+Epoch 2/15, Train Loss: 1.0699, Val Loss: 1.1330, Val Acc: 0.5166
+Epoch 3/15, Train Loss: 0.8987, Val Loss: 1.0176, Val Acc: 0.5861
+Epoch 4/15, Train Loss: 0.7780, Val Loss: 1.0477, Val Acc: 0.5828
+Epoch 5/15, Train Loss: 0.6678, Val Loss: 0.9189, Val Acc: 0.6126
+Epoch 6/15, Train Loss: 0.5820, Val Loss: 0.8870, Val Acc: 0.6424
+Epoch 7/15, Train Loss: 0.5082, Val Loss: 0.9786, Val Acc: 0.6258
+Epoch 8/15, Train Loss: 0.4375, Val Loss: 0.9304, Val Acc: 0.6689
+Epoch 9/15, Train Loss: 0.3665, Val Loss: 0.9279, Val Acc: 0.6358
+Early stopping
+Test Accuracy for fold 6: 0.6502
+Macro Precision for fold 6: 0.6582
+Macro Recall for fold 6: 0.6494
+Macro F1 Score for fold 6: 0.6494
+Micro Precision for fold 6: 0.6502
+Micro Recall for fold 6: 0.6502
+Micro F1 Score for fold 6: 0.6502
+Fold 7/10
+Epoch 1/15, Train Loss: 1.2674, Val Loss: 1.2166, Val Acc: 0.4503
+Epoch 2/15, Train Loss: 1.0175, Val Loss: 1.1487, Val Acc: 0.5232
+Epoch 3/15, Train Loss: 0.8703, Val Loss: 1.2962, Val Acc: 0.4768
+Epoch 4/15, Train Loss: 0.7634, Val Loss: 0.9689, Val Acc: 0.5596
+Epoch 5/15, Train Loss: 0.6528, Val Loss: 0.9294, Val Acc: 0.5795
+Epoch 6/15, Train Loss: 0.5804, Val Loss: 0.8913, Val Acc: 0.6225
+Epoch 7/15, Train Loss: 0.4937, Val Loss: 0.9664, Val Acc: 0.5728
+Epoch 8/15, Train Loss: 0.4070, Val Loss: 0.9034, Val Acc: 0.6325
+Epoch 9/15, Train Loss: 0.3633, Val Loss: 0.8666, Val Acc: 0.6358
+Epoch 10/15, Train Loss: 0.3143, Val Loss: 0.9237, Val Acc: 0.6192
+Epoch 11/15, Train Loss: 0.2680, Val Loss: 0.8653, Val Acc: 0.6457
+Epoch 12/15, Train Loss: 0.2318, Val Loss: 0.9208, Val Acc: 0.6325
+Epoch 13/15, Train Loss: 0.1958, Val Loss: 0.9433, Val Acc: 0.6325
+Epoch 14/15, Train Loss: 0.1593, Val Loss: 0.8976, Val Acc: 0.6523
+Early stopping
+Test Accuracy for fold 7: 0.6323
+Macro Precision for fold 7: 0.6338
+Macro Recall for fold 7: 0.6323
+Macro F1 Score for fold 7: 0.6327
+Micro Precision for fold 7: 0.6323
+Micro Recall for fold 7: 0.6323
+Micro F1 Score for fold 7: 0.6323
+Fold 8/10
+Epoch 1/15, Train Loss: 1.2800, Val Loss: 1.1809, Val Acc: 0.5166
+Epoch 2/15, Train Loss: 1.0251, Val Loss: 1.0650, Val Acc: 0.5728
+Epoch 3/15, Train Loss: 0.8793, Val Loss: 0.9881, Val Acc: 0.5828
+Epoch 4/15, Train Loss: 0.7507, Val Loss: 0.9685, Val Acc: 0.5861
+Epoch 5/15, Train Loss: 0.6519, Val Loss: 0.9470, Val Acc: 0.6126
+Epoch 6/15, Train Loss: 0.5738, Val Loss: 0.9296, Val Acc: 0.6093
+Epoch 7/15, Train Loss: 0.5162, Val Loss: 0.9523, Val Acc: 0.6258
+Epoch 8/15, Train Loss: 0.4272, Val Loss: 0.9323, Val Acc: 0.6060
+Epoch 9/15, Train Loss: 0.4047, Val Loss: 0.9304, Val Acc: 0.6325
+Early stopping
+Test Accuracy for fold 8: 0.6547
+Macro Precision for fold 8: 0.6439
+Macro Recall for fold 8: 0.6515
+Macro F1 Score for fold 8: 0.6388
+Micro Precision for fold 8: 0.6547
+Micro Recall for fold 8: 0.6547
+Micro F1 Score for fold 8: 0.6547
+Fold 9/10
+Epoch 1/15, Train Loss: 1.3100, Val Loss: 1.2101, Val Acc: 0.4768
+Epoch 2/15, Train Loss: 1.0458, Val Loss: 1.0350, Val Acc: 0.5662
+Epoch 3/15, Train Loss: 0.8665, Val Loss: 1.0257, Val Acc: 0.5596
+Epoch 4/15, Train Loss: 0.7529, Val Loss: 0.9919, Val Acc: 0.5662
+Epoch 5/15, Train Loss: 0.6482, Val Loss: 0.9246, Val Acc: 0.6192
+Epoch 6/15, Train Loss: 0.5632, Val Loss: 0.9704, Val Acc: 0.6192
+Epoch 7/15, Train Loss: 0.4769, Val Loss: 0.9325, Val Acc: 0.6026
+Epoch 8/15, Train Loss: 0.4060, Val Loss: 0.9932, Val Acc: 0.5894
+Early stopping
+Test Accuracy for fold 9: 0.6099
+Macro Precision for fold 9: 0.6150
+Macro Recall for fold 9: 0.6108
+Macro F1 Score for fold 9: 0.5871
+Micro Precision for fold 9: 0.6099
+Micro Recall for fold 9: 0.6099
+Micro F1 Score for fold 9: 0.6099
+Fold 10/10
+Epoch 1/15, Train Loss: 1.2561, Val Loss: 1.3440, Val Acc: 0.3808
+Epoch 2/15, Train Loss: 0.9535, Val Loss: 0.9346, Val Acc: 0.6358
+Epoch 3/15, Train Loss: 0.7949, Val Loss: 0.9364, Val Acc: 0.6424
+Epoch 4/15, Train Loss: 0.6614, Val Loss: 0.9303, Val Acc: 0.6556
+Epoch 5/15, Train Loss: 0.6061, Val Loss: 0.8521, Val Acc: 0.6722
+Epoch 6/15, Train Loss: 0.4790, Val Loss: 0.8408, Val Acc: 0.6821
+Epoch 7/15, Train Loss: 0.4088, Val Loss: 0.9217, Val Acc: 0.6523
+Epoch 8/15, Train Loss: 0.3425, Val Loss: 0.8810, Val Acc: 0.6656
+Epoch 9/15, Train Loss: 0.2967, Val Loss: 0.9068, Val Acc: 0.6589
+Early stopping
+Test Accuracy for fold 10: 0.6233
+Macro Precision for fold 10: 0.6694
+Macro Recall for fold 10: 0.6256
+Macro F1 Score for fold 10: 0.6272
+Micro Precision for fold 10: 0.6233
+Micro Recall for fold 10: 0.6233
+Micro F1 Score for fold 10: 0.6233
+K-Fold Cross Validation results:
+Fold 1: Accuracy: 0.6786, Macro Precision: 0.6850, Macro Recall: 0.6861, Macro F1 Score: 0.6836, Micro Precision: 0.6786, Micro Recall: 0.6786, Micro F1 Score: 0.6786
+Fold 2: Accuracy: 0.6741, Macro Precision: 0.6806, Macro Recall: 0.6716, Macro F1 Score: 0.6722, Micro Precision: 0.6741, Micro Recall: 0.6741, Micro F1 Score: 0.6741
+Fold 3: Accuracy: 0.6161, Macro Precision: 0.6094, Macro Recall: 0.6232, Macro F1 Score: 0.5806, Micro Precision: 0.6161, Micro Recall: 0.6161, Micro F1 Score: 0.6161
+Fold 4: Accuracy: 0.6652, Macro Precision: 0.6748, Macro Recall: 0.6621, Macro F1 Score: 0.6604, Micro Precision: 0.6652, Micro Recall: 0.6652, Micro F1 Score: 0.6652
+Fold 5: Accuracy: 0.6429, Macro Precision: 0.6529, Macro Recall: 0.6429, Macro F1 Score: 0.6400, Micro Precision: 0.6429, Micro Recall: 0.6429, Micro F1 Score: 0.6429
+Fold 6: Accuracy: 0.6502, Macro Precision: 0.6582, Macro Recall: 0.6494, Macro F1 Score: 0.6494, Micro Precision: 0.6502, Micro Recall: 0.6502, Micro F1 Score: 0.6502
+Fold 7: Accuracy: 0.6323, Macro Precision: 0.6338, Macro Recall: 0.6323, Macro F1 Score: 0.6327, Micro Precision: 0.6323, Micro Recall: 0.6323, Micro F1 Score: 0.6323
+Fold 8: Accuracy: 0.6547, Macro Precision: 0.6439, Macro Recall: 0.6515, Macro F1 Score: 0.6388, Micro Precision: 0.6547, Micro Recall: 0.6547, Micro F1 Score: 0.6547
+Fold 9: Accuracy: 0.6099, Macro Precision: 0.6150, Macro Recall: 0.6108, Macro F1 Score: 0.5871, Micro Precision: 0.6099, Micro Recall: 0.6099, Micro F1 Score: 0.6099
+Fold 10: Accuracy: 0.6233, Macro Precision: 0.6694, Macro Recall: 0.6256, Macro F1 Score: 0.6272, Micro Precision: 0.6233, Micro Recall: 0.6233, Micro F1 Score: 0.6233
+Average Test Accuracy: 0.6447
+Average Macro Precision: 0.6523
+Average Macro Recall: 0.6456
+Average Macro F1 Score: 0.6372
+Average Micro Precision: 0.6447
+Average Micro Recall: 0.6447
+Average Micro F1 Score: 0.6447
+
+Table 1: K-Fold Cross-Validation Results
+            fold  accuracy  ...  micro_recall  micro_f1_score
+0              1  0.678571  ...      0.678571        0.678571
+1              2  0.674107  ...      0.674107        0.674107
+2              3  0.616071  ...      0.616071        0.616071
+3              4  0.665179  ...      0.665179        0.665179
+4              5  0.642857  ...      0.642857        0.642857
+5              6  0.650224  ...      0.650224        0.650224
+6              7  0.632287  ...      0.632287        0.632287
+7              8  0.654709  ...      0.654709        0.654709
+8              9  0.609865  ...      0.609865        0.609865
+9             10  0.623318  ...      0.623318        0.623318
+Average  Average  0.644719  ...      0.644719        0.644719
