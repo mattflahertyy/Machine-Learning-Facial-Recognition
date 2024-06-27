@@ -86,7 +86,17 @@ Training the model:
 - After this we ran the evaluate_single_image.py which does the same as above but analyzes only one image.
 - At the end we decided to add the change_brightness.py which modified the brightness of images if they were too low, resulting in about 10% increase in accuracy.
 
+Data Evaluation:
+- First we created code to perform 10 fold cross valuation, and all the separated images were copied into a single csv file
+- Then we ran the k_fold.csv which ran the 10 fold cross valuation. It split the code into 10 parts and evaluated each as the test set and splits the train dataset into train and validation subsets.
+- Next the code evaluated the metrics for micro and macro accuracy, precision, recall, f1 score and the average of the 10 folds of each metric.
 
+Data Augmentation:
+- First we manually added new tags to all images with the 2 chosen additional biases
+- Then we ran the detect_bias_gender.py and detect_bias_race.py to determine the biases that existed within the data
+- The data was further augmented by adding more data to the asian, black and hispanic categories.
+- The new images were put through the convert_random_grayscale.py, decrease_brightness.py, find_brightness.py and increase_brightness.py to ensure consistency with the prior images.
+- The data was evaluated again. 
 
 # DATA SOURCES:
 - Natural Human Face Images for Emotion Recognition:
