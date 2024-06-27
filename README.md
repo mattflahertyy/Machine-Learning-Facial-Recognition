@@ -34,7 +34,18 @@ Part 2:
 - evaluate_single_image.py: Does the same as above but only evaluates one image.
 - change_brightness.py: Checks if an image isn't brught enough, if so then it enhances the brightness.
 
-Part 3:  TBD
+Part 3:
+- detect_bias_gender.py: This file takes the existing CNN architecture and verifies the bias with the metric of gender based on the labels in the csv file
+- detec_bias_race.py: This file takes the existing CNN architecture and verifies the bias with the metric of race based on the labels in the csv file
+- cnn_model_evaluation.py: Same as the previous model evaluation from part 2, except it only evaluates the main model
+- cnn.py: Same as the previous cnn.py from part 2
+- split_csv.py: Same as previous code that splits csv file into train, test, and validation data
+- print_csv_stats.py: Same as previous code taht prints the stats of the csv files containing the data
+- k_fold.py: This file runs a 10 fold cross validation on the main model on the same seed while printing the stats such as accuracy, precision, recall, and f1 score for each of the folds and then the average.
+- convert_random_grayscale.py: This file takes a random image and converts it to grayscale
+- decrease_brightness.py: This file goes through the images and if it passes a certain threshold, it will decrease the brightness
+- find_brightness.py: This file will calculate the brightness of all images and list their values in descending order
+- increase_brightness.py: This file goes through the images and if it passes a certain threshold, it will increase the brightness
 
 
 
@@ -64,7 +75,6 @@ Data Visualization:
   - Plotted them onto the table using matplotlib
 - Loaded 15 random images and aggregated the pixel intensity distribution for the selected images.
 
-
 Training the model:  
 - First we renamed all images just for our own personal understanding when dealing with the images.  
 - Then we ran the splitting_data.py file which created a 3 JSON files for train, validation and test and it stored the image names along with their label number from 1-4.  
@@ -75,6 +85,7 @@ Training the model:
 - Finally we ran the cnn_model_evaluation.py file which took our best 3 models and used the test set to measure the performance, calculating the accuracy, precision, recall, and f1 measure for both macro and micro.
 - After this we ran the evaluate_single_image.py which does the same as above but analyzes only one image.
 - At the end we decided to add the change_brightness.py which modified the brightness of images if they were too low, resulting in about 10% increase in accuracy.
+
 
 
 # DATA SOURCES:
