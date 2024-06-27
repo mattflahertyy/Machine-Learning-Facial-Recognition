@@ -4,7 +4,7 @@ import random
 import matplotlib.pyplot as plt
 
 # Ensure you have the correct path to the files
-data_path = os.path.dirname(os.path.abspath(__file__))
+data_path = 'part3/data_new'
 
 # Sample image loader function
 def load_sample_images(data_path, num_samples=15):

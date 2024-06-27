@@ -1,33 +1,30 @@
-import os
+import pandas as pd
 import matplotlib.pyplot as plt
 
-# Ensure you have the correct path to the files
-data_path = os.path.dirname(os.path.abspath(__file__))
+# Load the CSV files
+augmented_labels = pd.read_csv('part3/data_augmentation/augmented_labels.csv')
+kfold = pd.read_csv('part3/csv/kfold.csv')
 
-# Data and image count function
-def load_data_custom(data_path):
-    class_labels = []
-    class_counts = []
-    for class_dir in ['neutral', 'happy', 'focused', 'angry']:
-        class_path = os.path.join(data_path, class_dir)
-        if os.path.isdir(class_path):
-            num_images = len([name for name in os.listdir(class_path) if os.path.isfile(os.path.join(class_path, name))])
-            class_labels.append(class_dir)
-            class_counts.append(num_images)
-    return class_labels, class_counts
+# Combine the data from both CSV files
+combined_data = pd.concat([augmented_labels, kfold])
 
-# Load the data
-class_labels, class_counts = load_data_custom(data_path)
+# Count the number of each class
+class_counts = combined_data['label_name_class'].value_counts()
+
+# Print the counts
+print("Class distribution:")
+print(class_counts)
 
 # Plot the distribution
 plt.figure(figsize=(10, 6))
-bars = plt.bar(class_labels, class_counts, color='skyblue')
+ax = class_counts.plot(kind='bar')
+plt.xlabel('Class')
+plt.ylabel('Count')
+plt.title('Class Distribution')
+plt.xticks(rotation=0)
 
-# Add the counts on top of each bar
-for bar, count in zip(bars, class_counts):
-    plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height(), str(count), ha='center', va='bottom')
+# Add count labels on top of each bar
+for i in ax.containers:
+    ax.bar_label(i)
 
-plt.xlabel('Classes')
-plt.ylabel('Number of Images')
-plt.title('Distribution of Images Across Different Classes')
 plt.show()
